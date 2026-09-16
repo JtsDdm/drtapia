@@ -55,6 +55,7 @@ index.html
 logo-swiss-dental.svg
 logo-swiss-dental-completo.svg
 favicon.svg
+favicon-32.png
 apple-touch-icon.png
 og-image.jpg
 hero-bg.webp        hero-bg-800.webp

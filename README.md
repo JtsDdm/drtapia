@@ -13,9 +13,9 @@ Conversión = clic al botón de WhatsApp. Sin formularios, sin menú, sin oferta
 | `index.html` | La landing completa (HTML + CSS + JS en un solo archivo) |
 | `logo-swiss-dental.svg` | Marca apilada (isotipo + SWISS DENTAL), en el header |
 | `logo-swiss-dental-completo.svg` | Igual, con el eslogan "Precisión odontológica", en el pie |
-| `isotipo-swiss-dental.svg` | Solo la "S", por si se necesita suelta |
-| `logo1.svg` · `Logo2.svg` | Originales tal como los entregó el cliente (1080×1080, con márgenes) |
-| `favicon.svg` · `apple-touch-icon.png` | Icono de pestaña, derivado del isotipo |
+| `isotipo-swiss-dental.svg` | Solo la "S", recortada al contenido |
+| `logo1.svg` · `Logo2.svg` · `ICONO.svg` | Originales tal como los entregó el cliente (1080×1080, con márgenes) |
+| `favicon.svg` · `favicon-32.png` · `apple-touch-icon.png` | Iconos de pestaña y de pantalla de inicio |
 | `og-image.jpg` | Imagen de la vista previa al compartir el enlace (1200×630) |
 | `hero-bg.webp` · `hero-bg-800.webp` | Foto de fondo del hero — el equipo en el consultorio real |
 | `dr-tapia.webp` · `dr-tapia-560.webp` | Retrato del doctor en el recuadro del hero |
@@ -62,6 +62,19 @@ el CSSOM primero) y esta foto es el elemento LCP del sitio.
 
 El retrato del hero **no** lleva `aria-hidden`: es contenido, no decoración, y su `alt`
 describe al doctor. Hay que actualizarlo si cambia la foto.
+
+## Iconos
+
+Salen de `ICONO.svg`, el isotipo oficial, **sin retocar ni un color**.
+
+Van sobre una placa blanca, no sueltos: el icono es azul marino sobre transparente y
+en las pestañas con tema oscuro desaparecería. La placa lo deja visible en claro y en
+oscuro conservando los colores de marca.
+
+- `favicon.svg` — el que usan los navegadores modernos
+- `favicon-32.png` — respaldo para los que no admiten favicon en SVG
+- `apple-touch-icon.png` — 180×180, **cuadrado a sangre**: iOS aplica sus propias
+  esquinas redondeadas, así que el archivo no debe traerlas o se redondea dos veces
 
 ## Paleta (extraída del logo oficial, no inventada)
 
