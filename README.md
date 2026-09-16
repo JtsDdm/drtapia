@@ -3,105 +3,96 @@
 Landing de una sola oferta. Tráfico 100% pagado desde Meta Ads.
 Conversión = clic al botón de WhatsApp. Sin formularios, sin menú, sin ofertas compitiendo.
 
+👉 **Para publicarla, sigue [PUBLICAR.md](PUBLICAR.md).** Son tres datos y cuatro comprobaciones.
+👉 **Para entender por qué está hecha así, lee [ESTRUCTURA.md](ESTRUCTURA.md).**
+
 ## Archivos
-- `index.html` — la landing completa (HTML + CSS + JS en un solo archivo)
-- `logo-swiss-dental.svg` — logo oficial descargado de drarturotapia.com
-- `hero-bg.webp` / `hero-bg-800.webp` — foto de fondo del hero (47 KB / 23 KB)
-- `dr-tapia.webp` / `dr-tapia-560.webp` — retrato del doctor en el recuadro del hero (46 KB / 23 KB)
 
-## ⚠️ Antes de publicar — 3 reemplazos obligatorios
+| Archivo | Qué es |
+|---|---|
+| `index.html` | La landing completa (HTML + CSS + JS en un solo archivo) |
+| `logo-swiss-dental.svg` | Logo oficial descargado de drarturotapia.com |
+| `favicon.svg` · `apple-touch-icon.png` | Icono de pestaña, derivado del diente del logo |
+| `og-image.jpg` | Imagen de la vista previa al compartir el enlace (1200×630) |
+| `hero-bg.webp` · `hero-bg-800.webp` | Foto de fondo del hero — el equipo en el consultorio real |
+| `dr-tapia.webp` · `dr-tapia-560.webp` | Retrato del doctor en el recuadro del hero |
+| `dr-tapia-amed.webp` · `dr-tapia-amed-480.webp` | El doctor en su microscopio + emblema AMED (sección 05) |
+| `fonts/*.woff2` | Manrope auto-alojada: cero peticiones a terceros |
 
-| Variable | Dónde | Qué poner |
-|---|---|---|
-| `{{WHATSAPP_NUMBER}}` | `index.html` línea ~791 (bloque CONFIGURACIÓN) | Número nuevo en formato internacional **sin `+` ni espacios**, ej. `5212461234567` |
-| `{{META_PIXEL_ID}}` | 3 ocurrencias, bloque META PIXEL | ID del pixel de Meta |
-| `{{CEDULA_PROFESIONAL}}` | footer legal | Número exacto de cédula del doctor |
+Sin build, sin dependencias, sin peticiones externas. Se sube tal cual a cualquier hosting.
 
-El número de WhatsApp está en **un solo lugar** — lo toman automáticamente los 7 CTAs de la página.
+## Configuración — un solo bloque
+
+Los tres datos variables (`whatsapp`, `pixelId`, `cedula`) viven en el objeto
+`window.SWISS_CONFIG`, al final de `index.html`. Todo lo demás los lee de ahí.
+
+La página **falla a la vista, no en silencio**: sin número de WhatsApp muestra una franja
+roja de "SIN PUBLICAR" y desactiva los botones, en vez de dejar seis CTAs que parecen
+funcionar y no llevan a ninguna parte. Sin cédula, esa línea del pie no se imprime en
+lugar de mostrar un marcador de posición al paciente.
+
+## Fotografía — todo es material real del cliente
+
+Las imágenes provienen del sitio oficial del cliente (drarturotapia.com):
+el consultorio real de San Diego Metepec, su equipo real y su microscopio real.
+
+> **No usar imágenes generadas con IA en esta página.** Es publicidad sanitaria regulada
+> por COFEPRIS sobre un profesional identificable: una escena fabricada de un médico real
+> en un consultorio que no es el suyo es un riesgo legal y de credibilidad, y además
+> es innecesario — el cliente ya tiene fotografía profesional propia.
+
+Para regenerar desde otros originales:
+
+```bash
+# fondo del hero (1376 y 800 de ancho)
+ffmpeg -i foto.jpg -vf "scale=1376:-2" tmp.png && cwebp -q 76 tmp.png -o hero-bg.webp
+ffmpeg -i foto.jpg -vf "scale=800:-2"  tmp.png && cwebp -q 76 tmp.png -o hero-bg-800.webp
+
+# retrato del hero (1:1 nativo)
+ffmpeg -i retrato.jpg -vf "scale=920:920" tmp.png && cwebp -q 80 tmp.png -o dr-tapia.webp
+ffmpeg -i retrato.jpg -vf "scale=560:560" tmp.png && cwebp -q 78 tmp.png -o dr-tapia-560.webp
+```
+
+El fondo del hero va como `<img class="hero-bg">` con `fetchpriority="high"`, no como
+`background-image`: el navegador descubre un background-image tarde (tiene que construir
+el CSSOM primero) y esta foto es el elemento LCP del sitio.
+
+El retrato del hero **no** lleva `aria-hidden`: es contenido, no decoración, y su `alt`
+describe al doctor. Hay que actualizarlo si cambia la foto.
 
 ## Paleta (extraída del logo oficial, no inventada)
+
 - Azul `#0000B6` — color sólido del wordmark
 - Magenta `#FF2E88` — extremo superior del gradiente del isotipo
 - Gradiente de marca: vertical `#FF2E88 → #0000B6`
 
-Los CTAs usan magenta porque es el único color de alto contraste contra el azul/blanco del resto
-de la página: es imposible confundirlos con un link secundario.
+Los CTAs usan magenta porque es el único color de alto contraste contra el azul/blanco del
+resto de la página: es imposible confundirlos con un link secundario.
 
 ## Tracking
-El evento `Lead` de Meta se dispara en el clic, **antes** de salir a WhatsApp. Los links abren en
-pestaña nueva (`target="_blank"`), así la petición del pixel alcanza a completarse — es más fiable
-que `preventDefault` + redirect manual. Cada evento incluye `source` (`header`, `floating`,
-`section`, `footer`) para saber qué CTA convierte mejor.
+
+El evento `Lead` de Meta se dispara en el clic, **antes** de salir a WhatsApp. Los links
+abren en pestaña nueva (`target="_blank"`), así la petición del pixel alcanza a completarse
+— es más fiable que `preventDefault` + redirect manual. Cada evento incluye `source`
+(`header`, `floating`, `section`, `footer`) para saber qué CTA convierte mejor.
+
+El pixel no se carga si `pixelId` está vacío, para no lanzar una petición inválida a Meta.
+No hay etiqueta `<noscript>` del pixel: solo admitía el ID escrito a mano — rompiendo la
+promesa de "un único lugar que editar" — y sin JavaScript tampoco se registra el `Lead`.
 
 ## Cumplimiento COFEPRIS
+
 - Aviso de Publicidad **2529012002A00051** en el footer
 - Sin promesas de resultado, sin "garantizado", sin "cura", sin comparación con otras clínicas
 - Sin fotos de antes/después
 - Testimonios presentados como experiencia del paciente + nota legal explícita debajo
 - Disclaimer de que el sitio es orientativo y no sustituye consulta ni diagnóstico
 - Tono educativo en todas las secciones
-
-## Placeholders visuales a sustituir
-Todos están marcados en el HTML con `<!-- REEMPLAZAR: ... -->`:
-1. ~~**Hero**~~ — ✅ resuelto: video del microscopio en loop (ver sección *Video del hero*)
-2. **Doctor** — foto real del Dr. Tapia (vertical 4:5); ya existe en su sitio actual
-3. **Testimonios** — 3 avatares (`FOTO`): foto del paciente con consentimiento, o del consultorio
-4. **Redes sociales** — los 3 iconos del footer apuntan a `#`; poner URLs reales
-
-## Pendientes de contenido (bloquean lanzamiento, no el prototipo)
-- [ ] Precio del tratamiento de eliminación de caries con microscopio
-      *(mientras tanto la página usa: "El costo exacto de tu tratamiento se confirma en tu primera valoración")*
-- [ ] Confirmar si aplica "sin anestesia" en la mayoría de los casos
-      → si el doctor lo confirma, agregar la línea en la sección 02 (hay un comentario marcando el lugar)
-- [ ] Duración de la consulta de valoración
-      → FAQ #5 tiene un badge naranja "Pendiente" visible; quitarlo al completar
-- [ ] Testimonios en video nuevos, con consentimiento firmado, específicos a micro-odontología
-- [ ] Verificar que el Aviso de Publicidad COFEPRIS cubra este contenido específico
-
-## Fondo del hero
-Foto del consultorio a ancho completo bajo un velo azul oscuro. Va como `<img class="hero-bg">`
-con `fetchpriority="high"`, no como `background-image`: el navegador descubre un background-image
-tarde (tiene que construir el CSSOM primero) y esta foto es el elemento LCP del sitio.
-
-El velo es doble: un gradiente a 103° denso a la izquierda (donde va el texto) que se abre a la
-derecha, más uno vertical que asienta la base. La foto además va con `saturate(.72)` para que se
-lea como textura y no compita con el video ni con el CTA.
-
-Como el hero pasó a fondo oscuro, el texto se invierte a blanco con overrides al final del bloque
-`.hero` del CSS. Dos trampas resueltas ahí, documentadas en el propio archivo:
-- el gradiente de marca cierra en azul `#0000B6`, que sobre oscuro desaparece → dentro del hero
-  el `.accent` usa un gradiente rosa claro → rosa
-- ese override usa `background-image`, **no** el shorthand `background`, que resetearía el
-  `background-clip:text` y convertiría el título en un bloque rosa sólido
-
-Para regenerar desde otra foto (recorta a 1376 de ancho; si el master es más grande, ajusta):
-
-```bash
-ffmpeg -i foto.jpg -vf "scale=1376:-2" -c:v libwebp -quality 76 hero-bg.webp
-ffmpeg -i foto.jpg -vf "scale=800:-2"  -c:v libwebp -quality 76 hero-bg-800.webp
-```
-
-## Retrato del hero
-El recuadro del hero lleva el retrato del doctor junto al microscopio. Antes hubo ahí un video en
-loop; la foto funciona mejor porque una landing médica se vende con cara y confianza, no con
-movimiento — y además pesa 46 KB en vez de 248 KB.
-
-Es 1:1 nativa (1024×1024), así que entra en el recuadro sin recortarse. Se sirve por `srcset` en
-dos anchos, 920 para pantallas retina y 560 para móvil:
-
-```bash
-ffmpeg -i retrato.jpg -vf "scale=920:920" -c:v libwebp -quality 80 dr-tapia.webp
-ffmpeg -i retrato.jpg -vf "scale=560:560" -c:v libwebp -quality 78 dr-tapia-560.webp
-```
-
-A diferencia del fondo, esta imagen **no** lleva `aria-hidden`: es contenido, no decoración, y su
-`alt` describe al doctor. El `alt` debe actualizarse si cambia el nombre.
+- Párrafo de aviso de privacidad en el pie (cookies, pixel de Meta, datos de WhatsApp)
 
 ## Deploy
-Es HTML estático: sube `index.html` + `logo-swiss-dental.svg` + `hero-bg.webp`, `hero-bg-800.webp`,
-`dr-tapia.webp` y `dr-tapia-560.webp` a cualquier hosting
-(Netlify, Vercel, Hostinger, o una subcarpeta del WordPress actual).
-Sin build, sin dependencias. Única petición externa: Google Fonts (Manrope).
 
-Para máxima velocidad en Meta Ads, opcionalmente auto-alojar la fuente y quitar el `<link>`
-a fonts.googleapis.com.
+HTML estático. Se suben todos los archivos de la lista de arriba a Netlify, Vercel,
+Hostinger o una subcarpeta del WordPress actual. **Si la dirección final no es
+`https://drarturotapia.com/micro-odontologia/`, hay que actualizarla** en `canonical`,
+`og:url`, `og:image` y el JSON-LD — está explicado en [PUBLICAR.md](PUBLICAR.md).

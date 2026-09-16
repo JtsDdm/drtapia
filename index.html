@@ -12,13 +12,35 @@
 <meta property="og:locale" content="es_MX">
 <meta property="og:title" content="Tratamientos sin dolor, sin estrés, gracias a la micro-odontología">
 <meta property="og:description" content="La forma más precisa de cuidar tu boca. Única clínica en Tlaxcala especializada en odontología asistida con microscopio.">
-<meta property="og:image" content="https://drarturotapia.com/wp-content/uploads/2025/09/LOGO-SWISS-DENTAL.svg">
+<meta property="og:site_name" content="Swiss Dental — Dr. Arturo Ramírez Tapia">
+<meta property="og:url" content="https://drarturotapia.com/micro-odontologia/">
+<!-- og:image debe ser JPG/PNG: Facebook y WhatsApp NO renderizan SVG en las vistas previas. -->
+<meta property="og:image" content="https://drarturotapia.com/micro-odontologia/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Equipo de Swiss Dental en su consultorio de Tlaxcala">
+<meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0000B6">
+
+<!-- Tipografía auto-alojada: cero peticiones a terceros y sin bloqueo de render. -->
+<link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
+/* ---------- Tipografía auto-alojada (Manrope variable 400-800) ---------- */
+@font-face{
+  font-family:'Manrope';font-style:normal;font-weight:400 800;font-display:swap;
+  src:url('fonts/manrope-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Manrope';font-style:normal;font-weight:400 800;font-display:swap;
+  src:url('fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
 /* ============================================================
    SWISS DENTAL — Landing Micro-odontología
    Paleta extraída del logo oficial (LOGO-SWISS-DENTAL.svg):
@@ -88,7 +110,7 @@ p{margin:0 0 1.15em}
 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
 .logo img{height:40px;width:auto}
-.header-cta{display:none}
+.site-header .header-cta{display:none}
 
 /* ---------- Botones ---------- */
 .btn{
@@ -247,15 +269,15 @@ p{margin:0 0 1.15em}
 
 /* ---------- Doctor ---------- */
 .doctor-grid{display:grid;grid-template-columns:1fr;gap:clamp(30px,4vw,54px);align-items:start}
-.photo-slot{
-  aspect-ratio:4/5;max-width:400px;width:100%;border-radius:20px;
-  background:linear-gradient(160deg,var(--blue-soft),#fff);
-  border:1px dashed rgba(0,0,182,.3);
-  display:grid;place-content:center;gap:8px;text-align:center;padding:26px;
-  color:var(--blue);font-size:.86rem;font-weight:700;
+.photo-slot{max-width:400px;width:100%}
+.photo-slot img{
+  width:100%;height:auto;border-radius:20px;
+  background:var(--blue-soft);box-shadow:var(--shadow);
 }
-.photo-slot svg{width:34px;height:34px;margin-inline:auto;fill:var(--blue);opacity:.55}
-.photo-slot span{font-weight:500;color:var(--muted);font-size:.8rem;max-width:22ch}
+.photo-caption{
+  margin:14px 2px 0;font-size:.8rem;line-height:1.5;
+  color:var(--muted);font-weight:500;
+}
 
 .creds{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:2px}
 .creds li{
@@ -309,10 +331,10 @@ p{margin:0 0 1.15em}
 .t-who{display:flex;align-items:center;gap:13px;margin-top:auto;padding-top:6px}
 .avatar{
   width:46px;height:46px;border-radius:50%;flex:none;
-  background:linear-gradient(160deg,var(--blue-soft),#fff);
-  border:1px dashed rgba(0,0,182,.32);
-  display:grid;place-items:center;font-size:.62rem;font-weight:700;color:var(--blue);text-align:center;line-height:1.1;
+  background:var(--blue-soft);
+  display:grid;place-items:center;
 }
+.avatar svg{width:24px;height:24px;fill:var(--blue);opacity:.55}
 .t-who div b{display:block;font-size:.92rem;font-weight:800}
 .t-who div span{font-size:.8rem;color:var(--muted)}
 .legal-note{
@@ -341,11 +363,6 @@ summary::after{
 details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
 details .answer{padding:0 24px 23px;color:var(--muted);font-size:.99rem;line-height:1.68}
 details .answer p{margin:0}
-.pending{
-  display:inline-block;background:#FFF4E0;border:1px solid #F0D28A;color:#8A5A00;
-  font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:999px;margin-left:6px;vertical-align:middle;
-}
-
 /* ---------- CTA final ---------- */
 .final-cta{background:var(--blue-deep);color:#fff;text-align:center;position:relative;overflow:hidden}
 .final-cta::before{
@@ -402,7 +419,7 @@ details .answer p{margin:0}
 @media (min-width:980px){
   .hero-grid{grid-template-columns:1.08fr .92fr}
   .doctor-grid{grid-template-columns:.85fr 1.15fr}
-  .header-cta{display:inline-flex}
+  .site-header .header-cta{display:inline-flex}
   body{padding-bottom:0}
   .wa-float{left:auto;right:28px;bottom:28px}
   .wa-float .btn{width:auto}
@@ -438,7 +455,7 @@ details .answer p{margin:0}
   <img class="hero-bg" src="hero-bg.webp"
        srcset="hero-bg-800.webp 800w, hero-bg.webp 1376w"
        sizes="100vw" alt="" aria-hidden="true"
-       width="1376" height="768" fetchpriority="high" decoding="async">
+       width="1376" height="768" fetchpriority="high">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Micro-odontología · Tlaxcala</span>
@@ -527,10 +544,12 @@ details .answer p{margin:0}
     <div class="doctor-grid">
       <div>
         <div class="photo-slot">
-          <!-- REEMPLAZAR: foto real del doctor (existe en drarturotapia.com, usar con autorización) -->
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5Z"/></svg>
-          <strong>Foto del Dr. Arturo Ramírez Tapia</strong>
-          <span>Formato vertical 4:5, fondo de consultorio</span>
+          <img src="dr-tapia-amed.webp"
+               srcset="dr-tapia-amed-480.webp 480w, dr-tapia-amed.webp 800w"
+               sizes="(min-width:980px) 400px, 92vw"
+               alt="El Dr. Arturo Ramírez Tapia en su consultorio junto al microscopio dental, y el emblema de la Academy of Microscope Enhanced Dentistry"
+               width="800" height="921" loading="lazy" decoding="async">
+          <p class="photo-caption">El Dr. Tapia en su consultorio de San Diego Metepec, junto al microscopio con el que trabaja.</p>
         </div>
       </div>
       <div>
@@ -628,8 +647,8 @@ details .answer p{margin:0}
         </div>
         <blockquote>“La atención es muy amable, te dan seguridad, me tuvieron mucha paciencia, el consultorio está muy limpio, son puntuales con las citas.”</blockquote>
         <div class="t-who">
-          <!-- REEMPLAZAR: foto del paciente (con consentimiento) o del consultorio -->
-          <div class="avatar">FOTO</div>
+          <!-- RECOMENDADO: sustituir por foto del paciente con consentimiento firmado. -->
+          <div class="avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5Z"/></svg></div>
           <div><b>Paciente Swiss Dental</b><span>Reseña pública verificada</span></div>
         </div>
       </article>
@@ -640,7 +659,7 @@ details .answer p{margin:0}
         </div>
         <blockquote>“Amables en la atención, accesibles cuando se agenda la cita, respetando los tiempos, no demorando en la atención.”</blockquote>
         <div class="t-who">
-          <div class="avatar">FOTO</div>
+          <div class="avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5Z"/></svg></div>
           <div><b>Paciente verificado</b><span>Reseña pública verificada</span></div>
         </div>
       </article>
@@ -651,7 +670,7 @@ details .answer p{margin:0}
         </div>
         <blockquote>“Fue excelente tanto por el Dr. Arturo como por el resto del equipo… muy amables, cariñosos y profesionales, ayudándome a tomar la mejor decisión.”</blockquote>
         <div class="t-who">
-          <div class="avatar">FOTO</div>
+          <div class="avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5Z"/></svg></div>
           <div><b>Paciente Swiss Dental</b><span>Reseña pública verificada</span></div>
         </div>
       </article>
@@ -693,8 +712,8 @@ details .answer p{margin:0}
       </details>
 
       <details>
-        <summary>¿Cuánto dura la consulta de valoración? <span class="pending">Pendiente</span></summary>
-        <!-- PENDIENTE PRODUCCIÓN: confirmar duración con el doctor y quitar el badge -->
+        <!-- PENDIENTE: confirmar la duración exacta con el doctor y ponerla en la respuesta. -->
+        <summary>¿Cuánto dura la consulta de valoración?</summary>
         <div class="answer"><p>La duración se confirma al agendar, según el motivo de tu consulta. Escríbenos por WhatsApp y te damos el detalle.</p></div>
       </details>
 
@@ -730,10 +749,9 @@ details .answer p{margin:0}
         <img src="logo-swiss-dental.svg" alt="Swiss Dental" width="132" height="44" style="filter:brightness(0) invert(1);opacity:.9;margin-bottom:18px">
         <p>Odontología asistida con microscopio en Tlaxcala.</p>
         <div class="socials">
-          <!-- REEMPLAZAR: URLs reales de redes -->
-          <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.5-3.89 3.77-3.89 1.1 0 2.24.19 2.24.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg></a>
-          <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.89 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
-          <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+          <a href="https://www.facebook.com/swisstlaxcala" aria-label="Facebook de Swiss Dental" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.5-3.89 3.77-3.89 1.1 0 2.24.19 2.24.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+          <a href="https://www.instagram.com/dr.arturo.ramirez.tapia" aria-label="Instagram del Dr. Arturo Ramírez Tapia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.89 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+          <a href="https://www.youtube.com/@swissdental1503" aria-label="YouTube de Swiss Dental" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
         </div>
       </div>
 
@@ -751,9 +769,11 @@ details .answer p{margin:0}
 
     <div class="footer-legal">
       <p><strong>Aviso de Publicidad COFEPRIS:</strong> 2529012002A00051</p>
-      <!-- PENDIENTE PRODUCCIÓN: incluir número exacto de cédula profesional -->
-      <p><strong>Cédula profesional Dr. Arturo Ramírez Tapia:</strong> {{CEDULA_PROFESIONAL}}</p>
+      <!-- Se rellena desde el bloque CONFIGURACIÓN. Si la cédula está vacía, esta línea
+           no se muestra en vez de imprimir un marcador de posición delante del paciente. -->
+      <p id="cedula" hidden><strong>Cédula profesional Dr. Arturo Ramírez Tapia:</strong> <span id="cedula-num"></span></p>
       <p>La información de este sitio tiene fines orientativos y educativos, y no sustituye una consulta ni un diagnóstico profesional. Todo tratamiento se determina de forma individual tras la valoración clínica correspondiente.</p>
+      <p><strong>Aviso de privacidad:</strong> este sitio utiliza cookies y el pixel de Meta con fines de medición publicitaria. Al escribirnos por WhatsApp, los datos que compartas se usan únicamente para agendar y dar seguimiento a tu consulta, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
       <p>© <span id="year">2026</span> Swiss Dental — Dr. Arturo Ramírez Tapia. Todos los derechos reservados.</p>
     </div>
   </div>
@@ -787,6 +807,19 @@ details .answer p{margin:0}
     "jobTitle":"Cirujano Dentista · Especialista en Ortodoncia",
     "alumniOf":"U.P.A.E.P."
   },
+  "url":"https://drarturotapia.com/micro-odontologia/",
+  "image":"https://drarturotapia.com/micro-odontologia/og-image.jpg",
+  "telephone":"+52-246-144-1431",
+  "areaServed":[
+    {"@type":"AdministrativeArea","name":"Tlaxcala"},
+    {"@type":"AdministrativeArea","name":"Puebla"}
+  ],
+  "medicalSpecialty":"Dentistry",
+  "sameAs":[
+    "https://www.facebook.com/swisstlaxcala",
+    "https://www.instagram.com/dr.arturo.ramirez.tapia",
+    "https://www.youtube.com/@swissdental1503"
+  ],
   "priceRange":"$$"
 }
 </script>
@@ -799,53 +832,108 @@ details .answer p{margin:0}
     {"@type":"Question","name":"¿El tratamiento con microscopio duele más que uno tradicional?","acceptedAnswer":{"@type":"Answer","text":"Al ser más preciso y menos invasivo, la experiencia suele ser más cómoda, no menos — se interviene solo lo necesario."}},
     {"@type":"Question","name":"¿En qué se diferencia de una revisión dental normal?","acceptedAnswer":{"@type":"Answer","text":"Una revisión normal depende de la vista directa del dentista; con microscopio se detectan lesiones y detalles en etapas mucho más tempranas."}},
     {"@type":"Question","name":"¿Es necesaria la anestesia?","acceptedAnswer":{"@type":"Answer","text":"Depende del caso — se determina en tu valoración inicial con el doctor."}},
+    {"@type":"Question","name":"¿Cuánto dura la consulta de valoración?","acceptedAnswer":{"@type":"Answer","text":"La duración se confirma al agendar, según el motivo de tu consulta. Escríbenos por WhatsApp y te damos el detalle."}},
     {"@type":"Question","name":"¿Cuánto cuesta la primera valoración?","acceptedAnswer":{"@type":"Answer","text":"$900 MXN, e incluye evaluación con microscopio, cámara intraoral y radiografías digitales."}}
   ]
 }
 </script>
 
+<!-- ============================================================================
+     CONFIGURACIÓN — EL ÚNICO BLOQUE QUE HAY QUE EDITAR ANTES DE PUBLICAR
+     Rellena los tres valores de abajo. Todo lo demás de la página los lee de aquí.
+     Si alguno queda vacío, la página se degrada sin mostrarle nada roto al paciente.
+     ============================================================================ -->
+<script>
+window.SWISS_CONFIG = {
+  /* 1) WhatsApp — formato internacional, sin "+" ni espacios. Ej: '522461441431' */
+  whatsapp: '',
+
+  /* 2) ID del pixel de Meta — solo los dígitos. Ej: '123456789012345' */
+  pixelId: '',
+
+  /* 3) Cédula profesional del Dr. Arturo Ramírez Tapia. Ej: '1234567' */
+  cedula: '',
+
+  /* Mensaje con el que se abre el chat de WhatsApp */
+  mensaje: 'Hola, vi la página sobre odontología con microscopio y quiero información'
+};
+</script>
+
 <!-- ============ META PIXEL ============ -->
 <script>
-/* REEMPLAZAR {{META_PIXEL_ID}} por el ID real del pixel de Meta */
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','{{META_PIXEL_ID}}');
-fbq('track','PageView');
+(function(){
+  var id = (window.SWISS_CONFIG && window.SWISS_CONFIG.pixelId || '').trim();
+  /* Sin ID configurado no se carga nada: evita una petición rota a Meta y ruido en consola. */
+  if (!id) { console.warn('[Swiss Dental] Pixel de Meta sin configurar: no se está midiendo nada.'); return; }
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', id);
+  fbq('track','PageView');
+})();
+/* Nota: se eliminó la etiqueta <noscript> del pixel. Solo aceptaba el ID escrito a mano,
+   lo que rompía la promesa de "un único lugar que editar", y sin JavaScript tampoco se
+   puede registrar el evento Lead, que es la métrica que de verdad importa aquí. */
 </script>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id={{META_PIXEL_ID}}&ev=PageView&noscript=1"></noscript>
 
 <!-- ============ LÓGICA ============ -->
 <script>
 (function(){
   'use strict';
 
-  /* ---- CONFIGURACIÓN — único lugar a editar ---- */
-  var WHATSAPP_NUMBER  = '{{WHATSAPP_NUMBER}}'; // formato internacional sin +, ej: 5212461234567
-  var WHATSAPP_MESSAGE = 'Hola, vi la página sobre odontología con microscopio y quiero información';
-
-  var href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(WHATSAPP_MESSAGE);
+  var CFG = window.SWISS_CONFIG || {};
+  var numero = String(CFG.whatsapp || '').replace(/[^0-9]/g,'');
+  var mensaje = CFG.mensaje || 'Hola, quiero información';
   var links = document.querySelectorAll('[data-wa]');
 
-  Array.prototype.forEach.call(links, function(a){
-    a.setAttribute('href', href);
+  /* ---- Cédula profesional: se muestra solo si está configurada ---- */
+  var cedula = String(CFG.cedula || '').trim();
+  var pCedula = document.getElementById('cedula');
+  if (pCedula && cedula) {
+    document.getElementById('cedula-num').textContent = cedula;
+    pCedula.hidden = false;
+  }
 
-    a.addEventListener('click', function(){
-      /* Evento Lead de Meta antes de salir. El link abre en pestaña nueva,
-         así que la petición del pixel alcanza a completarse. */
-      if (typeof window.fbq === 'function') {
-        window.fbq('track', 'Lead', {
-          content_name: 'Micro-odontologia — WhatsApp',
-          source: a.closest('section, header, footer, .wa-float')
-                   ? (a.closest('.wa-float') ? 'floating' : (a.closest('header') ? 'header' : (a.closest('footer') ? 'footer' : 'section')))
-                   : 'unknown'
-        });
-      }
+  /* ---- WhatsApp: los 7 CTAs leen el número de un solo lugar ---- */
+  if (numero) {
+    var href = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(mensaje);
+    Array.prototype.forEach.call(links, function(a){
+      a.setAttribute('href', href);
+      a.addEventListener('click', function(){
+        /* Evento Lead de Meta antes de salir. El link abre en pestaña nueva,
+           así que la petición del pixel alcanza a completarse. */
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Lead', {
+            content_name: 'Micro-odontologia — WhatsApp',
+            source: a.closest('.wa-float') ? 'floating'
+                  : a.closest('header')    ? 'header'
+                  : a.closest('footer')    ? 'footer'
+                  : a.closest('section')   ? 'section'
+                  : 'unknown'
+          });
+        }
+      });
     });
-  });
+  } else {
+    /* Sin número configurado la página falla a la vista, no en silencio: un botón
+       que parece funcionar y no lleva a ninguna parte quema presupuesto de anuncios
+       sin que nadie se entere. */
+    console.error('[Swiss Dental] Falta el número de WhatsApp en window.SWISS_CONFIG. Los botones están desactivados.');
+    Array.prototype.forEach.call(links, function(a){
+      a.removeAttribute('href');
+      a.setAttribute('aria-disabled','true');
+      a.style.opacity = '.55';
+      a.style.cursor = 'not-allowed';
+    });
+    var aviso = document.createElement('div');
+    aviso.setAttribute('role','alert');
+    aviso.style.cssText = 'position:fixed;inset:0 0 auto 0;z-index:999;background:#B00020;color:#fff;'
+      + 'padding:12px 18px;font:700 14px/1.45 system-ui,sans-serif;text-align:center';
+    aviso.textContent = 'SIN PUBLICAR: falta configurar el número de WhatsApp en el bloque CONFIGURACIÓN de index.html.';
+    document.body.appendChild(aviso);
+  }
 
   /* ---- Año dinámico ---- */
   var y = document.getElementById('year');

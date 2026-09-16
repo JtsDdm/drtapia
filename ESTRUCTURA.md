@@ -66,6 +66,11 @@ la home, lleva al inicio de la misma página.
 El único elemento clicable además del logo es el CTA de WhatsApp, y aparece **solo en desktop**:
 en móvil ya está la barra flotante abajo y dos botones compitiendo a la vez es fricción.
 
+> Esta regla estuvo escrita pero no funcionaba: `.btn{display:inline-flex}` se declaraba
+> después de `.header-cta{display:none}` con la misma especificidad, así que ganaba por orden
+> de cascada y el botón se veía también en móvil — exactamente la fricción que se quería evitar.
+> Corregido subiendo la especificidad a `.site-header .header-cta`.
+
 ### 02 · Hero — la promesa antes que la tecnología
 
 El headline vende **el resultado emocional** ("sin dolor, sin estrés"), no la tecnología.
@@ -79,15 +84,23 @@ parte es la que convierte la página en algo que no puedes comparar con el denti
 **El badge de credibilidad va pegado al CTA, no en otra sección.** El instante de mayor duda es
 el medio segundo antes del clic — ahí es donde hay que poner la prueba, no 2000px más abajo.
 
-**El hero va sobre foto, no sobre blanco.** Fondo: foto real del consultorio con el microscopio
-en uso, bajo un velo azul muy oscuro — más denso a la izquierda, donde vive el texto, y más
-abierto a la derecha. La foto aporta contexto y credibilidad sin pelear con el mensaje: se
-percibe como textura, no como protagonista. Por eso también va desaturada.
+**El hero va sobre foto, no sobre blanco.** Fondo: fotografía del equipo de Swiss Dental en
+su consultorio de San Diego Metepec, bajo un velo azul muy oscuro — más denso a la izquierda,
+donde vive el texto, y más abierto a la derecha. La foto aporta contexto y credibilidad sin
+pelear con el mensaje: se percibe como textura, no como protagonista. Por eso también va
+desaturada.
 
-**El recuadro lleva la cara del doctor.** Retrato junto al microscopio, sobre el único fondo
-claro de todo el hero: la mirada cae ahí justo después del titular. En una landing médica lo que
-cierra la duda antes del clic es ver a quién te vas a poner en las manos, no una animación. Los
-anillos concéntricos del prototipo, y el video que hubo después, ya no existen.
+> La versión anterior usaba aquí una imagen generada con IA: otro dentista, otra clínica,
+> presentada como si fuera el consultorio del Dr. Tapia. Se sustituyó por material real del
+> cliente. **En publicidad sanitaria, la foto tiene que ser del lugar y de la persona que
+> dice ser** — es lo primero que se cae si alguien compara la landing con el sitio o con
+> las redes de la clínica.
+
+**El recuadro lleva la cara del doctor.** Retrato profesional del Dr. Tapia en su consultorio,
+con el microscopio visible al fondo, sobre el único fondo claro de todo el hero: la mirada cae
+ahí justo después del titular. En una landing médica lo que cierra la duda antes del clic es ver
+a quién te vas a poner en las manos, no una animación. Los anillos concéntricos del prototipo,
+y el video que hubo después, ya no existen.
 
 ### 03 · Problema — reconocer antes de vender
 
@@ -183,8 +196,12 @@ Dos decisiones:
 - **La pregunta de anestesia responde "depende del caso"** en vez de tranquilizar de más.
   Es honesto, es lo único defendible legalmente, y no genera una expectativa que el doctor tenga
   que desmontar en consulta.
-- **La duración de consulta lleva un badge naranja "Pendiente" visible en la página.**
-  Deliberado: es un recordatorio imposible de ignorar antes de lanzar. Se quita al completar el dato.
+- **La duración de consulta se responde sin comprometerse a un número.** El dato exacto sigue
+  pendiente de confirmar con el doctor; mientras tanto la respuesta remite a WhatsApp, que es
+  donde se agenda de todos modos. El prototipo mostraba aquí un badge naranja "Pendiente" como
+  recordatorio interno: se retiró porque era visible para el paciente y un aviso de "pendiente"
+  en una página de salud resta exactamente la confianza que la sección intenta construir.
+  El recordatorio vive ahora en `PUBLICAR.md`.
 
 ### 09 · CTA final — repetición, no variación
 
@@ -213,11 +230,12 @@ clínica improvisada.
 | **CTA flotante = barra completa en móvil, pill en desktop** | En móvil, la barra inferior de ancho completo es el área de mayor tasa de clic y cae bajo el pulgar. En desktop sería invasiva, así que se reduce a pill en la esquina. `body` reserva 96px abajo en móvil para no tapar el footer. |
 | **`target="_blank"` + evento `Lead` en el clic** | Al abrir WhatsApp en pestaña nueva, la página sigue viva y la petición del pixel alcanza a completarse. Es más fiable que `preventDefault()` + redirect manual, donde el navegador puede cancelar la petición al navegar. |
 | **`source` en cada evento `Lead`** | Cada CTA reporta de dónde salió (`header`, `floating`, `section`, `footer`). Permite saber qué punto de la página convierte y dónde vale la pena insistir. |
-| **Número de WhatsApp en una sola variable** | Los 7 CTAs lo leen de un único lugar. Cambiar el número es editar una línea, no cazar siete. |
+| **Los tres datos variables en un solo bloque** | `window.SWISS_CONFIG` reúne número de WhatsApp, ID del pixel y cédula. Los 6 CTAs, la medición y la línea legal del pie leen de ahí. Cambiar el número es editar una línea, no cazar seis. |
+| **Degradación visible, no silenciosa** | Sin número configurado la página muestra una franja roja de "SIN PUBLICAR" y desactiva los CTAs; sin cédula, esa línea del pie no se imprime. Un botón que parece funcionar y no lleva a ninguna parte quema presupuesto sin que nadie se entere. |
 | **FAQ con `<details>` nativo** | Cero JavaScript, accesible por teclado por defecto, funciona sin JS e indexable por Google. |
 | **JSON-LD (`Dentist` + `FAQPage`)** | Aunque el tráfico sea pagado, no cuesta nada y habilita resultados enriquecidos si la página gana tracción orgánica. |
 | **`prefers-reduced-motion` respetado** | Las animaciones de entrada se desactivan por completo para quien lo pide a nivel sistema. Accesibilidad básica. |
-| **Sin dependencias externas salvo Google Fonts** | Única petición a terceros. Se puede auto-alojar la fuente para eliminarla del todo. |
+| **Cero dependencias externas** | La tipografía Manrope va auto-alojada en `fonts/`. No queda ninguna petición a terceros: ni bloqueo de render por la hoja de estilos de Google, ni la IP del visitante viajando a un tercero antes de que la página pinte. |
 
 ---
 
@@ -240,9 +258,12 @@ jerarquía por tamaño y peso en vez de por adorno. Es la decisión que más ale
 estándar visual de "dentista amigable" — sin ilustraciones, sin dientes caricaturizados, sin
 degradados aleatorios.
 
-**Los placeholders están diseñados, no vacíos.** El marco de foto del doctor y los avatares de
-testimonios son elementos intencionales con las líneas punteadas y etiquetas de la marca. Un prototipo con cajas grises se presenta mal ante el cliente y hace difícil juzgar el
-diseño real.
+**Ya no quedan placeholders a la vista.** El marco de la sección 05 lleva la foto real del doctor
+en su microscopio junto al emblema de la AMED — que es precisamente la credencial listada a su
+lado, así que la imagen trabaja como prueba y no como relleno. Los avatares de los testimonios
+llevan un icono neutro de la marca en lugar de la palabra "FOTO", que en el prototipo se
+imprimía literalmente. Sustituirlos por fotos de pacientes con consentimiento firmado sigue
+siendo la mejora pendiente de mayor impacto.
 
 ---
 
