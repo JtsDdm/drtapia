@@ -79,10 +79,15 @@ parte es la que convierte la página en algo que no puedes comparar con el denti
 **El badge de credibilidad va pegado al CTA, no en otra sección.** El instante de mayor duda es
 el medio segundo antes del clic — ahí es donde hay que poner la prueba, no 2000px más abajo.
 
-**El visual óptico:** anillos concéntricos animados con el gradiente de marca, sobre azul profundo.
-Es un placeholder, pero *diseñado* — comunica magnificación y precisión. Una caja gris con
-"imagen aquí" habría matado la percepción premium del prototipo. Se reemplaza por foto real
-del microscopio o del consultorio.
+**El hero va sobre foto, no sobre blanco.** Fondo: foto real del consultorio con el microscopio
+en uso, bajo un velo azul muy oscuro — más denso a la izquierda, donde vive el texto, y más
+abierto a la derecha. La foto aporta contexto y credibilidad sin pelear con el mensaje: se
+percibe como textura, no como protagonista. Por eso también va desaturada.
+
+**El recuadro lleva la cara del doctor.** Retrato junto al microscopio, sobre el único fondo
+claro de todo el hero: la mirada cae ahí justo después del titular. En una landing médica lo que
+cierra la duda antes del clic es ver a quién te vas a poner en las manos, no una animación. Los
+anillos concéntricos del prototipo, y el video que hubo después, ya no existen.
 
 ### 03 · Problema — reconocer antes de vender
 
@@ -235,9 +240,8 @@ jerarquía por tamaño y peso en vez de por adorno. Es la decisión que más ale
 estándar visual de "dentista amigable" — sin ilustraciones, sin dientes caricaturizados, sin
 degradados aleatorios.
 
-**Los placeholders están diseñados, no vacíos.** El visual óptico, el marco de foto del doctor y
-los avatares de testimonios son elementos intencionales con las líneas punteadas y etiquetas de la
-marca. Un prototipo con cajas grises se presenta mal ante el cliente y hace difícil juzgar el
+**Los placeholders están diseñados, no vacíos.** El marco de foto del doctor y los avatares de
+testimonios son elementos intencionales con las líneas punteadas y etiquetas de la marca. Un prototipo con cajas grises se presenta mal ante el cliente y hace difícil juzgar el
 diseño real.
 
 ---

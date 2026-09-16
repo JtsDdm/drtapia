@@ -6,6 +6,8 @@ Conversión = clic al botón de WhatsApp. Sin formularios, sin menú, sin oferta
 ## Archivos
 - `index.html` — la landing completa (HTML + CSS + JS en un solo archivo)
 - `logo-swiss-dental.svg` — logo oficial descargado de drarturotapia.com
+- `hero-bg.webp` / `hero-bg-800.webp` — foto de fondo del hero (47 KB / 23 KB)
+- `dr-tapia.webp` / `dr-tapia-560.webp` — retrato del doctor en el recuadro del hero (46 KB / 23 KB)
 
 ## ⚠️ Antes de publicar — 3 reemplazos obligatorios
 
@@ -41,8 +43,7 @@ que `preventDefault` + redirect manual. Cada evento incluye `source` (`header`, 
 
 ## Placeholders visuales a sustituir
 Todos están marcados en el HTML con `<!-- REEMPLAZAR: ... -->`:
-1. **Hero** — el visual óptico animado es un placeholder de marca; sustituir por foto real del
-   microscopio o del consultorio (cuadrada, `.webp`)
+1. ~~**Hero**~~ — ✅ resuelto: video del microscopio en loop (ver sección *Video del hero*)
 2. **Doctor** — foto real del Dr. Tapia (vertical 4:5); ya existe en su sitio actual
 3. **Testimonios** — 3 avatares (`FOTO`): foto del paciente con consentimiento, o del consultorio
 4. **Redes sociales** — los 3 iconos del footer apuntan a `#`; poner URLs reales
@@ -57,8 +58,48 @@ Todos están marcados en el HTML con `<!-- REEMPLAZAR: ... -->`:
 - [ ] Testimonios en video nuevos, con consentimiento firmado, específicos a micro-odontología
 - [ ] Verificar que el Aviso de Publicidad COFEPRIS cubra este contenido específico
 
+## Fondo del hero
+Foto del consultorio a ancho completo bajo un velo azul oscuro. Va como `<img class="hero-bg">`
+con `fetchpriority="high"`, no como `background-image`: el navegador descubre un background-image
+tarde (tiene que construir el CSSOM primero) y esta foto es el elemento LCP del sitio.
+
+El velo es doble: un gradiente a 103° denso a la izquierda (donde va el texto) que se abre a la
+derecha, más uno vertical que asienta la base. La foto además va con `saturate(.72)` para que se
+lea como textura y no compita con el video ni con el CTA.
+
+Como el hero pasó a fondo oscuro, el texto se invierte a blanco con overrides al final del bloque
+`.hero` del CSS. Dos trampas resueltas ahí, documentadas en el propio archivo:
+- el gradiente de marca cierra en azul `#0000B6`, que sobre oscuro desaparece → dentro del hero
+  el `.accent` usa un gradiente rosa claro → rosa
+- ese override usa `background-image`, **no** el shorthand `background`, que resetearía el
+  `background-clip:text` y convertiría el título en un bloque rosa sólido
+
+Para regenerar desde otra foto (recorta a 1376 de ancho; si el master es más grande, ajusta):
+
+```bash
+ffmpeg -i foto.jpg -vf "scale=1376:-2" -c:v libwebp -quality 76 hero-bg.webp
+ffmpeg -i foto.jpg -vf "scale=800:-2"  -c:v libwebp -quality 76 hero-bg-800.webp
+```
+
+## Retrato del hero
+El recuadro del hero lleva el retrato del doctor junto al microscopio. Antes hubo ahí un video en
+loop; la foto funciona mejor porque una landing médica se vende con cara y confianza, no con
+movimiento — y además pesa 46 KB en vez de 248 KB.
+
+Es 1:1 nativa (1024×1024), así que entra en el recuadro sin recortarse. Se sirve por `srcset` en
+dos anchos, 920 para pantallas retina y 560 para móvil:
+
+```bash
+ffmpeg -i retrato.jpg -vf "scale=920:920" -c:v libwebp -quality 80 dr-tapia.webp
+ffmpeg -i retrato.jpg -vf "scale=560:560" -c:v libwebp -quality 78 dr-tapia-560.webp
+```
+
+A diferencia del fondo, esta imagen **no** lleva `aria-hidden`: es contenido, no decoración, y su
+`alt` describe al doctor. El `alt` debe actualizarse si cambia el nombre.
+
 ## Deploy
-Es HTML estático: sube `index.html` + `logo-swiss-dental.svg` a cualquier hosting
+Es HTML estático: sube `index.html` + `logo-swiss-dental.svg` + `hero-bg.webp`, `hero-bg-800.webp`,
+`dr-tapia.webp` y `dr-tapia-560.webp` a cualquier hosting
 (Netlify, Vercel, Hostinger, o una subcarpeta del WordPress actual).
 Sin build, sin dependencias. Única petición externa: Google Fonts (Manrope).
 

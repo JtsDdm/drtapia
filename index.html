@@ -110,14 +110,33 @@ p{margin:0 0 1.15em}
 
 /* ---------- Hero ---------- */
 .hero{
+  position:relative;isolation:isolate;
   padding-top:clamp(46px,7vw,84px);
   padding-bottom:clamp(56px,8vw,104px);
-  background:
-    radial-gradient(900px 420px at 88% -8%,rgba(255,46,136,.12),transparent 62%),
-    radial-gradient(760px 420px at 4% 8%,rgba(0,0,182,.10),transparent 60%),
-    var(--bg);
+  background:var(--blue-deep);
   overflow:hidden;
 }
+/* Foto de fondo. Es el elemento LCP del sitio, por eso va como <img> con
+   fetchpriority alto y no como background-image (que el navegador descubre tarde). */
+.hero-bg{
+  position:absolute;inset:0;z-index:-2;
+  width:100%;height:100%;object-fit:cover;object-position:50% 38%;
+  filter:saturate(.72) brightness(.92);
+}
+/* El velo. Más denso a la izquierda, donde vive el texto, y se abre hacia la
+   derecha para que la foto siga respirando detrás del video. */
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(103deg,
+      rgba(0,0,38,.95) 0%,
+      rgba(0,0,38,.90) 42%,
+      rgba(0,0,48,.82) 72%,
+      rgba(0,0,58,.76) 100%),
+    linear-gradient(0deg,rgba(0,0,40,.6),transparent 52%);
+}
+.hero .wrap{position:relative;z-index:1}
+
 .hero-grid{display:grid;grid-template-columns:1fr;gap:clamp(34px,5vw,62px);align-items:center}
 .hero h1 .accent{
   background:var(--grad);-webkit-background-clip:text;background-clip:text;
@@ -125,6 +144,25 @@ p{margin:0 0 1.15em}
 }
 .hero .lead{max-width:56ch;margin-top:22px}
 .hero-actions{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:32px}
+
+/* Texto del hero sobre la foto oscurecida.
+   Va despues de las reglas de arriba a proposito: mismo peso de selector,
+   gana el orden. */
+.hero h1{color:#fff}
+.hero .lead{color:rgba(255,255,255,.8)}
+.hero .eyebrow{color:#fff;opacity:.9}
+/* El gradiente de marca cierra en azul (#0000B6) y sobre fondo oscuro esa mitad
+   desaparece. Dentro del hero el gradiente se acorta al rango claro del rosa. */
+/* background-image, NO el shorthand background: el shorthand resetearia el
+   background-clip:text de la regla de arriba y el texto saldria como bloque solido. */
+.hero h1 .accent{background-image:linear-gradient(180deg,#FF8FBF 0%,#FF2E88 100%)}
+.hero .badge{
+  background:rgba(255,255,255,.1);
+  border-color:rgba(255,255,255,.24);
+  color:#fff;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+.hero .badge svg{fill:#fff}
 
 .badge{
   display:flex;align-items:flex-start;gap:12px;
@@ -142,21 +180,15 @@ p{margin:0 0 1.15em}
   box-shadow:var(--shadow);display:grid;place-items:center;
 }
 .optic::after{
-  content:"";position:absolute;inset:0;
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
   background:radial-gradient(circle at 50% 42%,rgba(255,46,136,.34),transparent 58%);
+  mix-blend-mode:screen;opacity:.55;
 }
-.optic-rings{position:relative;width:76%;aspect-ratio:1/1;display:grid;place-items:center}
-.ring{
-  position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.22);
-  inset:0;animation:pulse 5.2s var(--ease) infinite;
-}
-.ring:nth-child(2){inset:13%;border-color:rgba(255,255,255,.3);animation-delay:.45s}
-.ring:nth-child(3){inset:26%;border-color:rgba(255,46,136,.6);animation-delay:.9s}
-.ring:nth-child(4){inset:39%;border-color:rgba(255,255,255,.4);animation-delay:1.35s}
-@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.035)}}
-.optic-core{
-  position:relative;z-index:2;width:24%;aspect-ratio:1/1;border-radius:50%;
-  background:var(--grad);box-shadow:0 0 44px rgba(255,46,136,.75);
+/* Retrato del doctor dentro del recuadro del hero. */
+.optic-photo{
+  position:absolute;inset:0;z-index:1;
+  width:100%;height:100%;object-fit:cover;
+  background:var(--blue-deep);
 }
 .optic-label{
   position:absolute;left:0;right:0;bottom:0;z-index:3;
@@ -403,6 +435,10 @@ details .answer p{margin:0}
 
 <!-- ============ 2. HERO ============ -->
 <section class="hero">
+  <img class="hero-bg" src="hero-bg.webp"
+       srcset="hero-bg-800.webp 800w, hero-bg.webp 1376w"
+       sizes="100vw" alt="" aria-hidden="true"
+       width="1376" height="768" fetchpriority="high" decoding="async">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Micro-odontología · Tlaxcala</span>
@@ -422,13 +458,13 @@ details .answer p{margin:0}
       </div>
     </div>
 
-    <div class="optic" aria-hidden="true">
-      <!-- REEMPLAZAR: foto real del microscopio / consultorio (formato cuadrado, .webp) -->
-      <div class="optic-rings">
-        <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
-        <div class="optic-core"></div>
-      </div>
-      <div class="optic-label">Visión asistida con microscopio<span>Magnificación de hasta 30 aumentos</span></div>
+    <div class="optic">
+      <img class="optic-photo" src="dr-tapia.webp"
+           srcset="dr-tapia-560.webp 560w, dr-tapia.webp 920w"
+           sizes="(min-width:980px) 460px, 92vw"
+           alt="El Dr. Arturo Tapia en su consultorio, junto al microscopio dental"
+           width="920" height="920" decoding="async">
+      <div class="optic-label">Dr. Arturo Tapia<span>Micro-odontología asistida con microscopio</span></div>
     </div>
   </div>
 </section>
