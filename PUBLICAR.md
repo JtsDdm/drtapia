@@ -53,6 +53,7 @@ Archivos necesarios:
 ```
 index.html
 logo-swiss-dental.svg
+logo-swiss-dental-completo.svg
 favicon.svg
 apple-touch-icon.png
 og-image.jpg

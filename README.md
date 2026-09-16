@@ -11,8 +11,11 @@ Conversión = clic al botón de WhatsApp. Sin formularios, sin menú, sin oferta
 | Archivo | Qué es |
 |---|---|
 | `index.html` | La landing completa (HTML + CSS + JS en un solo archivo) |
-| `logo-swiss-dental.svg` | Logo oficial descargado de drarturotapia.com |
-| `favicon.svg` · `apple-touch-icon.png` | Icono de pestaña, derivado del diente del logo |
+| `logo-swiss-dental.svg` | Marca apilada (isotipo + SWISS DENTAL), en el header |
+| `logo-swiss-dental-completo.svg` | Igual, con el eslogan "Precisión odontológica", en el pie |
+| `isotipo-swiss-dental.svg` | Solo la "S", por si se necesita suelta |
+| `logo1.svg` · `Logo2.svg` | Originales tal como los entregó el cliente (1080×1080, con márgenes) |
+| `favicon.svg` · `apple-touch-icon.png` | Icono de pestaña, derivado del isotipo |
 | `og-image.jpg` | Imagen de la vista previa al compartir el enlace (1200×630) |
 | `hero-bg.webp` · `hero-bg-800.webp` | Foto de fondo del hero — el equipo en el consultorio real |
 | `dr-tapia.webp` · `dr-tapia-560.webp` | Retrato del doctor en el recuadro del hero |
@@ -62,12 +65,29 @@ describe al doctor. Hay que actualizarlo si cambia la foto.
 
 ## Paleta (extraída del logo oficial, no inventada)
 
-- Azul `#0000B6` — color sólido del wordmark
-- Magenta `#FF2E88` — extremo superior del gradiente del isotipo
-- Gradiente de marca: vertical `#FF2E88 → #0000B6`
+Colores del logo **nuevo** (`logo1.svg` / `Logo2.svg`):
 
-Los CTAs usan magenta porque es el único color de alto contraste contra el azul/blanco del
+- Azul marino `#071C39` — wordmark e isotipo
+- Gradiente del isotipo: horizontal `#060A79 → #103CE1`
+
+⚠️ **La página todavía usa la paleta del logo anterior** (azul `#0000B6` + magenta
+`#FF2E88`). El logo nuevo no tiene magenta, así que ahora mismo el logo y los botones
+no son de la misma marca. Ver la nota al final de este archivo.
+
+Los CTAs usan magenta porque era el único color de alto contraste contra el azul/blanco del
 resto de la página: es imposible confundirlos con un link secundario.
+
+### Pendiente: unificar la paleta con el logo nuevo
+
+El logo cambió a azul marino + azul eléctrico, sin magenta. Quedan dos caminos y hay que
+elegir uno antes de gastar en anuncios:
+
+1. **Repintar la página con la paleta nueva.** Coherente de marca, pero hay que encontrar un
+   color de CTA que destaque sobre un fondo ya azul — el azul eléctrico `#103CE1` sobre azul
+   marino no separa lo suficiente, así que el botón necesitaría otro tono de acento.
+2. **Conservar el magenta solo en los botones** y pasar el resto de la página a azul marino.
+   Menos coherente en teoría, pero el magenta es lo que hace que el CTA sea imposible de
+   confundir, que es de lo que vive esta landing.
 
 ## Tracking
 

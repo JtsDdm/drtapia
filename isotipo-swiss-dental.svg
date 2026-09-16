@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="406.3 127.9 275.3 359.2" role="img" aria-label="Swiss Dental">
+<title>Swiss Dental</title>
+<defs>
+    <style>
+      .cls-1 {
+        fill: #071c39;
+      }
+
+      .cls-2 {
+        fill: url(#Degradado_sin_nombre_105);
+      }
+
+      .cls-3 {
+        fill: #061b39;
+      }
+
+      .cls-4 {
+        fill: #071b38;
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_105" data-name="Degradado sin nombre 105" x1="428.28" y1="321.83" x2="671.43" y2="321.83" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#060a79"/>
+      <stop offset="1" stop-color="#103ce1"/>
+    </linearGradient>
+  </defs>
+<g>
+        <path class="cls-3" d="M534.56,225.93l-.7,43.68-110.91.36c-17.71-40.96-4.96-85.88,29.99-114.28,26.06-21.17,58.85-28.58,92.86-27.68,24.05.64,47.41,1.6,69.58,10.42,36.19,14.39,63.69,46.41,66.22,86.28l-147.05,1.22Z"/>
+        <path class="cls-1" d="M542.8,487.14c-33.47-.12-63.46-4.71-90.56-22.98-29.19-19.69-46.44-52.96-45.95-88.62l265.91-1.44c2.94,27.85-7.57,53.32-25.87,72.92-26.72,28.61-63.56,40.26-103.53,40.11Z"/>
+        <path class="cls-2" d="M671.07,364.77l-106.53-.48c-50.7-.23-116.01-31.42-136.62-84.79l113.8-.6c52.89-.28,115.16,28.48,129.35,85.87Z"/>
+      </g>
+</svg>
