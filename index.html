@@ -23,7 +23,7 @@
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#0000B6">
+<meta name="theme-color" content="#071C39">
 
 <!-- Tipografía auto-alojada: cero peticiones a terceros y sin bloqueo de render. -->
 <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -43,24 +43,34 @@
 
 /* ============================================================
    SWISS DENTAL — Landing Micro-odontología
-   Paleta extraída del logo oficial (LOGO-SWISS-DENTAL.svg):
-   azul #0000B6 · magenta #FF2E88 (gradiente vertical)
+   Paleta extraída del logo oficial (logo1.svg / Logo2.svg):
+   azul marino #071C39 · gradiente del isotipo #060A79 → #103CE1
+
+   El magenta #FF2E88 NO está en el logo nuevo: se conserva exclusivamente en los
+   botones de WhatsApp. Es el único color de la página que significa "aquí se hace
+   clic", y sobre una página ya azul ningún azul de marca lograría separarse igual.
+   Si el magenta aparece en cualquier otro sitio, el CTA pierde ese privilegio.
    ============================================================ */
 
 :root{
-  --blue:#0000B6;
-  --blue-deep:#000079;
-  --blue-soft:#EDEDFF;
-  --pink:#FF2E88;
-  --pink-deep:#D6006A;
-  --ink:#0A0A23;
-  --muted:#55556F;
-  --line:#E3E3F0;
+  --blue:#103CE1;        /* azul eléctrico del isotipo: acento sobre fondo claro */
+  --blue-deep:#071C39;   /* azul marino del logo: todas las secciones oscuras */
+  --blue-soft:#EAEFFD;   /* tinte claro para chips y destacados */
+  --blue-light:#8FB4FF;  /* aclarado del azul de marca, para acentos sobre oscuro */
+  /* SOLO botones de WhatsApp — ver nota de arriba.
+     #E31B6D en vez del #FF2E88 original: con texto blanco encima, el magenta
+     brillante daba 3.5:1 de contraste y el mínimo AA para este tamaño es 4.5:1.
+     Este tono da 4.52:1 sin dejar de ser magenta ni perder fuerza contra el azul. */
+  --pink:#E31B6D;
+  --pink-deep:#BF0A57;
+  --ink:#071C39;
+  --muted:#5A6883;
+  --line:#DDE4F0;
   --bg:#FFFFFF;
-  --bg-alt:#F6F7FB;
-  --grad:linear-gradient(180deg,#FF2E88 0%,#0000B6 100%);
+  --bg-alt:#F5F7FC;
+  --grad:linear-gradient(90deg,#060A79 0%,#103CE1 100%);
   --radius:18px;
-  --shadow:0 18px 50px -20px rgba(10,10,35,.28);
+  --shadow:0 18px 50px -20px rgba(7,28,57,.28);
   --maxw:1120px;
   --ease:cubic-bezier(.22,.61,.36,1);
 }
@@ -98,7 +108,7 @@ p{margin:0 0 1.15em}
 }
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--grad);border-radius:2px}
 .eyebrow.on-dark{color:#fff;opacity:.92}
-.eyebrow.on-dark::before{background:var(--pink)}
+.eyebrow.on-dark::before{background:var(--blue-light)}
 
 /* ---------- Header ---------- */
 .site-header{
@@ -122,9 +132,9 @@ p{margin:0 0 1.15em}
 }
 .btn-wa{
   background:var(--pink);color:#fff;
-  box-shadow:0 14px 34px -12px rgba(255,46,136,.85),0 0 0 0 rgba(255,46,136,.45);
+  box-shadow:0 14px 34px -12px rgba(227,27,109,.85),0 0 0 0 rgba(227,27,109,.45);
 }
-.btn-wa:hover{background:var(--pink-deep);transform:translateY(-2px);box-shadow:0 20px 42px -14px rgba(255,46,136,.9)}
+.btn-wa:hover{background:var(--pink-deep);transform:translateY(-2px);box-shadow:0 20px 42px -14px rgba(227,27,109,.9)}
 .btn-wa:active{transform:translateY(0)}
 .btn-wa svg{width:22px;height:22px;flex:none;fill:currentColor}
 .btn-sm{padding:12px 22px;font-size:.93rem}
@@ -151,11 +161,11 @@ p{margin:0 0 1.15em}
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:
     linear-gradient(103deg,
-      rgba(0,0,38,.95) 0%,
-      rgba(0,0,38,.90) 42%,
-      rgba(0,0,48,.82) 72%,
-      rgba(0,0,58,.76) 100%),
-    linear-gradient(0deg,rgba(0,0,40,.6),transparent 52%);
+      rgba(7,28,57,.95) 0%,
+      rgba(7,28,57,.90) 42%,
+      rgba(9,34,68,.82) 72%,
+      rgba(11,40,80,.76) 100%),
+    linear-gradient(0deg,rgba(7,28,57,.62),transparent 52%);
 }
 .hero .wrap{position:relative;z-index:1}
 
@@ -173,11 +183,15 @@ p{margin:0 0 1.15em}
 .hero h1{color:#fff}
 .hero .lead{color:rgba(255,255,255,.8)}
 .hero .eyebrow{color:#fff;opacity:.9}
-/* El gradiente de marca cierra en azul (#0000B6) y sobre fondo oscuro esa mitad
-   desaparece. Dentro del hero el gradiente se acorta al rango claro del rosa. */
+/* El eyebrow del hero no lleva .on-dark, así que su rayita seguía usando el
+   gradiente de marca, que sobre el marino no se ve. */
+.hero .eyebrow::before{background:var(--blue-light)}
+/* El gradiente de marca cierra en #103CE1 y sobre el marino del hero esa mitad no
+   alcanza el contraste mínimo para texto grande. Dentro del hero se sustituye por
+   dos aclarados del mismo azul, que sí se leen. */
 /* background-image, NO el shorthand background: el shorthand resetearia el
    background-clip:text de la regla de arriba y el texto saldria como bloque solido. */
-.hero h1 .accent{background-image:linear-gradient(180deg,#FF8FBF 0%,#FF2E88 100%)}
+.hero h1 .accent{background-image:linear-gradient(180deg,#CFE0FF 0%,#7FA8FF 100%)}
 .hero .badge{
   background:rgba(255,255,255,.1);
   border-color:rgba(255,255,255,.24);
@@ -188,7 +202,7 @@ p{margin:0 0 1.15em}
 
 .badge{
   display:flex;align-items:flex-start;gap:12px;
-  background:var(--blue-soft);border:1px solid rgba(0,0,182,.16);
+  background:var(--blue-soft);border:1px solid rgba(16,60,225,.16);
   border-radius:14px;padding:14px 18px;
   font-size:.92rem;font-weight:600;color:var(--blue);line-height:1.45;
   max-width:420px;
@@ -203,7 +217,7 @@ p{margin:0 0 1.15em}
 }
 .optic::after{
   content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:radial-gradient(circle at 50% 42%,rgba(255,46,136,.34),transparent 58%);
+  background:radial-gradient(circle at 50% 42%,rgba(143,180,255,.22),transparent 58%);
   mix-blend-mode:screen;opacity:.55;
 }
 /* Retrato del doctor dentro del recuadro del hero. */
@@ -215,7 +229,7 @@ p{margin:0 0 1.15em}
 .optic-label{
   position:absolute;left:0;right:0;bottom:0;z-index:3;
   padding:20px 22px;color:#fff;
-  background:linear-gradient(0deg,rgba(0,0,60,.88),transparent);
+  background:linear-gradient(0deg,rgba(7,28,57,.9),transparent);
   font-size:.86rem;font-weight:700;letter-spacing:.02em;
 }
 .optic-label span{display:block;font-weight:500;opacity:.78;font-size:.8rem;margin-top:3px}
@@ -239,7 +253,7 @@ p{margin:0 0 1.15em}
 .mechanism{background:var(--blue-deep);color:#fff;position:relative;overflow:hidden}
 .mechanism::before{
   content:"";position:absolute;inset:0;
-  background:radial-gradient(760px 420px at 82% 6%,rgba(255,46,136,.26),transparent 58%);
+  background:radial-gradient(760px 420px at 82% 6%,rgba(143,180,255,.22),transparent 58%);
   pointer-events:none;
 }
 .mechanism .wrap{position:relative;z-index:1}
@@ -261,7 +275,7 @@ p{margin:0 0 1.15em}
   border-radius:var(--radius);padding:28px 26px;
 }
 .card .num{
-  font-size:.74rem;font-weight:800;letter-spacing:.14em;color:var(--pink);
+  font-size:.74rem;font-weight:800;letter-spacing:.14em;color:var(--blue-light);
   display:block;margin-bottom:14px;
 }
 .card h3{color:#fff;margin-bottom:10px}
@@ -285,7 +299,7 @@ p{margin:0 0 1.15em}
   padding:15px 0;border-bottom:1px solid var(--line);font-size:.99rem;
 }
 .creds li:last-child{border-bottom:0}
-.creds svg{width:18px;height:18px;flex:none;margin-top:4px;fill:var(--pink)}
+.creds svg{width:18px;height:18px;flex:none;margin-top:4px;fill:var(--blue)}
 .creds strong{font-weight:800}
 .creds .hl{background:var(--blue-soft);border-radius:12px;padding:15px 16px;border-bottom:0;color:var(--blue);font-weight:600}
 .creds .hl svg{fill:var(--blue)}
@@ -309,7 +323,7 @@ p{margin:0 0 1.15em}
 .amount small{font-size:1rem;font-weight:700;color:var(--muted);letter-spacing:0}
 .price-card ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:11px}
 .price-card ul li{display:flex;gap:11px;align-items:flex-start;font-size:.95rem;color:var(--muted)}
-.price-card ul svg{width:17px;height:17px;flex:none;margin-top:4px;fill:var(--pink)}
+.price-card ul svg{width:17px;height:17px;flex:none;margin-top:4px;fill:var(--blue)}
 .finance{
   margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
   padding:24px 26px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
@@ -349,7 +363,7 @@ details{
   background:#fff;border:1px solid var(--line);border-radius:14px;
   margin-bottom:12px;overflow:hidden;
 }
-details[open]{border-color:rgba(0,0,182,.34);box-shadow:0 6px 24px -14px rgba(10,10,35,.3)}
+details[open]{border-color:rgba(16,60,225,.34);box-shadow:0 6px 24px -14px rgba(7,28,57,.3)}
 summary{
   cursor:pointer;list-style:none;padding:21px 56px 21px 24px;
   font-weight:700;font-size:1.02rem;position:relative;line-height:1.4;
@@ -367,7 +381,7 @@ details .answer p{margin:0}
 .final-cta{background:var(--blue-deep);color:#fff;text-align:center;position:relative;overflow:hidden}
 .final-cta::before{
   content:"";position:absolute;inset:0;
-  background:radial-gradient(640px 360px at 50% 100%,rgba(255,46,136,.34),transparent 62%);
+  background:radial-gradient(640px 360px at 50% 100%,rgba(143,180,255,.26),transparent 62%);
 }
 .final-cta .wrap{position:relative;z-index:1;max-width:780px}
 .final-cta h2{color:#fff}
@@ -381,13 +395,13 @@ details .answer p{margin:0}
 .site-footer h4{margin:0 0 14px;color:#fff;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800}
 .site-footer p{margin:0 0 9px;line-height:1.6}
 .site-footer a{color:rgba(255,255,255,.8);text-decoration:none}
-.site-footer a:hover{color:var(--pink)}
+.site-footer a:hover{color:var(--blue-light)}
 .socials{display:flex;gap:12px;margin-top:14px}
 .socials a{
   width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);
   display:grid;place-items:center;transition:background .2s var(--ease);
 }
-.socials a:hover{background:var(--pink)}
+.socials a:hover{background:var(--blue)}
 .socials svg{width:18px;height:18px;fill:#fff}
 .footer-legal{
   margin-top:38px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12);
@@ -401,7 +415,7 @@ details .answer p{margin:0}
   display:flex;justify-content:center;
   animation:rise .5s var(--ease) .8s both;
 }
-.wa-float .btn{width:100%;max-width:520px;box-shadow:0 16px 40px -10px rgba(255,46,136,.7)}
+.wa-float .btn{width:100%;max-width:520px;box-shadow:0 16px 40px -10px rgba(227,27,109,.7)}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
 /* ---------- Reveal ---------- */

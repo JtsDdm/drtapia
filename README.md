@@ -65,29 +65,33 @@ describe al doctor. Hay que actualizarlo si cambia la foto.
 
 ## Paleta (extraída del logo oficial, no inventada)
 
-Colores del logo **nuevo** (`logo1.svg` / `Logo2.svg`):
+Del logo (`logo1.svg` / `Logo2.svg`):
 
-- Azul marino `#071C39` — wordmark e isotipo
-- Gradiente del isotipo: horizontal `#060A79 → #103CE1`
+- Azul marino `#071C39` — tinta del texto y fondo de todas las secciones oscuras
+- Azul eléctrico `#103CE1` — acento sobre fondo claro (iconos, cifras, destacados)
+- Gradiente de marca: horizontal `#060A79 → #103CE1`
+- Azul claro `#8FB4FF` — aclarado del anterior, para acentos sobre el marino,
+  donde el azul de marca no alcanza el contraste mínimo
 
-⚠️ **La página todavía usa la paleta del logo anterior** (azul `#0000B6` + magenta
-`#FF2E88`). El logo nuevo no tiene magenta, así que ahora mismo el logo y los botones
-no son de la misma marca. Ver la nota al final de este archivo.
+Fuera del logo, y a propósito:
 
-Los CTAs usan magenta porque era el único color de alto contraste contra el azul/blanco del
-resto de la página: es imposible confundirlos con un link secundario.
+- Magenta `#E31B6D` — **exclusivamente los botones de WhatsApp**
 
-### Pendiente: unificar la paleta con el logo nuevo
+### Por qué el magenta no está en el logo y aun así se queda
 
-El logo cambió a azul marino + azul eléctrico, sin magenta. Quedan dos caminos y hay que
-elegir uno antes de gastar en anuncios:
+Es el único color de la página que significa "aquí se hace clic". Sobre una página que ya
+es azul de arriba abajo, ningún azul de marca logra separarse igual: el botón se leería
+como un elemento más de la interfaz. Mientras el magenta no aparezca en ningún otro sitio,
+es imposible confundir el CTA con un link secundario.
 
-1. **Repintar la página con la paleta nueva.** Coherente de marca, pero hay que encontrar un
-   color de CTA que destaque sobre un fondo ya azul — el azul eléctrico `#103CE1` sobre azul
-   marino no separa lo suficiente, así que el botón necesitaría otro tono de acento.
-2. **Conservar el magenta solo en los botones** y pasar el resto de la página a azul marino.
-   Menos coherente en teoría, pero el magenta es lo que hace que el CTA sea imposible de
-   confundir, que es de lo que vive esta landing.
+La regla se aplica literalmente: iconos de credenciales, cifras de precio, numeración de
+tarjetas y hover de redes pasaron a azul cuando se repintó la página. Si el magenta vuelve
+a aparecer en cualquier otro elemento, el CTA pierde ese privilegio.
+
+No es el `#FF2E88` del logo anterior sino un tono algo más profundo: con texto blanco
+encima, el magenta brillante daba 3.5:1 de contraste y el mínimo AA para ese tamaño de
+texto es 4.5:1. `#E31B6D` da 4.52:1 sin perder fuerza. Todos los pares de color de la
+página cumplen AA.
 
 ## Tracking
 

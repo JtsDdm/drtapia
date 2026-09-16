@@ -242,15 +242,26 @@ clínica improvisada.
 ## 5. Decisiones de marca y diseño
 
 **La paleta se extrajo del SVG del logo oficial, no se inventó.**
-Azul `#0000B6` (wordmark sólido) y magenta `#FF2E88` (extremo superior del gradiente del isotipo),
-con el gradiente de marca vertical `#FF2E88 → #0000B6`. Cualquier color nuevo habría roto la
-consistencia con el resto de los materiales del cliente.
+Azul marino `#071C39` (wordmark e isotipo) y el gradiente horizontal `#060A79 → #103CE1` de la
+cuña del isotipo. Sobre el marino de las secciones oscuras, el azul de marca no alcanza el
+contraste mínimo para texto, así que los acentos ahí usan un aclarado del mismo tono (`#8FB4FF`)
+— una variación de un color de marca, no un color nuevo.
 
-**El magenta está reservado exclusivamente para CTAs.** Aparece en los botones y en detalles mínimos
-de acento — nunca en texto de cuerpo, nunca en elementos decorativos grandes. Es un presupuesto de
-color: mientras el magenta signifique "aquí se hace clic" y nada más, el botón es imposible de
-confundir con un link secundario. Es lo que el brief pedía como "alto contraste", resuelto con la
-marca en vez de con un verde WhatsApp genérico que habría abaratado el conjunto.
+**El magenta está reservado exclusivamente para CTAs, y no está en el logo.** Es la única
+excepción deliberada a la paleta de marca. Sobre una página que es azul de arriba abajo, ningún
+azul del logo logra separarse lo suficiente: el botón se leería como un elemento más de la
+interfaz. Es un presupuesto de color: mientras el magenta signifique "aquí se hace clic" y nada
+más, el botón es imposible de confundir con un link secundario. Es lo que el brief pedía como
+"alto contraste", resuelto sin recurrir a un verde WhatsApp genérico que habría abaratado el
+conjunto.
+
+> En el prototipo la regla estaba escrita pero no se cumplía: el magenta también pintaba los
+> iconos de credenciales, las cifras de precio, la numeración de las tarjetas, los halos
+> decorativos y el hover de las redes. Al repintar la página con la marca nueva, todo eso pasó
+> a azul. El magenta ahora aparece **solo** en los seis botones.
+
+> El tono es `#E31B6D`, no el `#FF2E88` del logo anterior: con texto blanco encima, el magenta
+> brillante daba 3.5:1 de contraste y el mínimo AA para ese tamaño es 4.5:1.
 
 **Tipografía Manrope, retícula amplia, secciones numeradas 01–06.**
 El nombre "Swiss Dental" invita literalmente al diseño suizo: rejilla estricta, mucho aire,
