@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Micro-odontología en Tlaxcala | Swiss Dental — Dr. Arturo Ramírez Tapia</title>
+<meta name="description" content="Tratamientos dentales precisos y mínimamente invasivos con microscopio de alta magnificación. Primera clínica de odontología asistida con microscopio en la zona Tlaxcala–Puebla, desde 2018.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://drarturotapia.com/micro-odontologia/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Tratamientos sin dolor, sin estrés, gracias a la micro-odontología">
+<meta property="og:description" content="La forma más precisa de cuidar tu boca. Única clínica en Tlaxcala especializada en odontología asistida con microscopio.">
+<meta property="og:image" content="https://drarturotapia.com/wp-content/uploads/2025/09/LOGO-SWISS-DENTAL.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+
+<style>
+/* ============================================================
+   SWISS DENTAL — Landing Micro-odontología
+   Paleta extraída del logo oficial (LOGO-SWISS-DENTAL.svg):
+   azul #0000B6 · magenta #FF2E88 (gradiente vertical)
+   ============================================================ */
+
+:root{
+  --blue:#0000B6;
+  --blue-deep:#000079;
+  --blue-soft:#EDEDFF;
+  --pink:#FF2E88;
+  --pink-deep:#D6006A;
+  --ink:#0A0A23;
+  --muted:#55556F;
+  --line:#E3E3F0;
+  --bg:#FFFFFF;
+  --bg-alt:#F6F7FB;
+  --grad:linear-gradient(180deg,#FF2E88 0%,#0000B6 100%);
+  --radius:18px;
+  --shadow:0 18px 50px -20px rgba(10,10,35,.28);
+  --maxw:1120px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:96px; /* espacio para la barra flotante de WhatsApp en móvil */
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:22px}
+section{padding-block:clamp(64px,9vw,118px)}
+
+/* ---------- Tipografía ---------- */
+h1,h2,h3{margin:0;letter-spacing:-.033em;line-height:1.08;font-weight:800}
+h1{font-size:clamp(2.1rem,5.4vw,3.85rem)}
+h2{font-size:clamp(1.8rem,4vw,2.9rem)}
+h3{font-size:clamp(1.12rem,2vw,1.35rem);letter-spacing:-.02em;line-height:1.25}
+p{margin:0 0 1.15em}
+.lead{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--muted);line-height:1.62}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.735rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:20px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--grad);border-radius:2px}
+.eyebrow.on-dark{color:#fff;opacity:.92}
+.eyebrow.on-dark::before{background:var(--pink)}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.logo img{height:40px;width:auto}
+.header-cta{display:none}
+
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:11px;
+  font-weight:800;font-size:1.02rem;letter-spacing:-.01em;
+  padding:17px 30px;border-radius:999px;border:0;cursor:pointer;
+  text-decoration:none;line-height:1.2;text-align:center;
+  transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease);
+}
+.btn-wa{
+  background:var(--pink);color:#fff;
+  box-shadow:0 14px 34px -12px rgba(255,46,136,.85),0 0 0 0 rgba(255,46,136,.45);
+}
+.btn-wa:hover{background:var(--pink-deep);transform:translateY(-2px);box-shadow:0 20px 42px -14px rgba(255,46,136,.9)}
+.btn-wa:active{transform:translateY(0)}
+.btn-wa svg{width:22px;height:22px;flex:none;fill:currentColor}
+.btn-sm{padding:12px 22px;font-size:.93rem}
+.btn-lg{padding:20px 38px;font-size:1.1rem}
+
+/* ---------- Hero ---------- */
+.hero{
+  padding-top:clamp(46px,7vw,84px);
+  padding-bottom:clamp(56px,8vw,104px);
+  background:
+    radial-gradient(900px 420px at 88% -8%,rgba(255,46,136,.12),transparent 62%),
+    radial-gradient(760px 420px at 4% 8%,rgba(0,0,182,.10),transparent 60%),
+    var(--bg);
+  overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:clamp(34px,5vw,62px);align-items:center}
+.hero h1 .accent{
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+}
+.hero .lead{max-width:56ch;margin-top:22px}
+.hero-actions{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:32px}
+
+.badge{
+  display:flex;align-items:flex-start;gap:12px;
+  background:var(--blue-soft);border:1px solid rgba(0,0,182,.16);
+  border-radius:14px;padding:14px 18px;
+  font-size:.92rem;font-weight:600;color:var(--blue);line-height:1.45;
+  max-width:420px;
+}
+.badge svg{width:19px;height:19px;flex:none;margin-top:2px;fill:var(--blue)}
+
+/* Visual óptico del hero */
+.optic{
+  position:relative;aspect-ratio:1/1;max-width:460px;width:100%;margin-inline:auto;
+  border-radius:24px;background:var(--blue-deep);overflow:hidden;
+  box-shadow:var(--shadow);display:grid;place-items:center;
+}
+.optic::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 42%,rgba(255,46,136,.34),transparent 58%);
+}
+.optic-rings{position:relative;width:76%;aspect-ratio:1/1;display:grid;place-items:center}
+.ring{
+  position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.22);
+  inset:0;animation:pulse 5.2s var(--ease) infinite;
+}
+.ring:nth-child(2){inset:13%;border-color:rgba(255,255,255,.3);animation-delay:.45s}
+.ring:nth-child(3){inset:26%;border-color:rgba(255,46,136,.6);animation-delay:.9s}
+.ring:nth-child(4){inset:39%;border-color:rgba(255,255,255,.4);animation-delay:1.35s}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.035)}}
+.optic-core{
+  position:relative;z-index:2;width:24%;aspect-ratio:1/1;border-radius:50%;
+  background:var(--grad);box-shadow:0 0 44px rgba(255,46,136,.75);
+}
+.optic-label{
+  position:absolute;left:0;right:0;bottom:0;z-index:3;
+  padding:20px 22px;color:#fff;
+  background:linear-gradient(0deg,rgba(0,0,60,.88),transparent);
+  font-size:.86rem;font-weight:700;letter-spacing:.02em;
+}
+.optic-label span{display:block;font-weight:500;opacity:.78;font-size:.8rem;margin-top:3px}
+
+/* ---------- Sección numerada ---------- */
+.section-head{max-width:62ch;margin-bottom:clamp(34px,4.5vw,56px)}
+.section-head .lead{margin-top:20px}
+
+/* ---------- Problema ---------- */
+.problem{background:var(--bg-alt);border-block:1px solid var(--line)}
+.problem-body{max-width:66ch}
+.problem-body p{font-size:clamp(1.02rem,1.9vw,1.16rem);color:var(--muted);line-height:1.72}
+.problem-body strong{color:var(--ink);font-weight:700}
+.problem-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.pill{
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:9px 17px;font-size:.88rem;font-weight:600;color:var(--muted);
+}
+
+/* ---------- Mecanismo (oscuro) ---------- */
+.mechanism{background:var(--blue-deep);color:#fff;position:relative;overflow:hidden}
+.mechanism::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(760px 420px at 82% 6%,rgba(255,46,136,.26),transparent 58%);
+  pointer-events:none;
+}
+.mechanism .wrap{position:relative;z-index:1}
+.mechanism h2{color:#fff}
+.mechanism .lead{color:rgba(255,255,255,.76)}
+.mag-stat{
+  display:inline-flex;align-items:baseline;gap:12px;
+  margin:6px 0 30px;padding:14px 24px;border-radius:14px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+}
+.mag-stat b{font-size:clamp(2rem,4.6vw,2.9rem);font-weight:800;letter-spacing:-.04em;
+  background:linear-gradient(180deg,#fff,#FF9AC6);-webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;line-height:1}
+.mag-stat span{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.8)}
+
+.cards{display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px}
+.card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--radius);padding:28px 26px;
+}
+.card .num{
+  font-size:.74rem;font-weight:800;letter-spacing:.14em;color:var(--pink);
+  display:block;margin-bottom:14px;
+}
+.card h3{color:#fff;margin-bottom:10px}
+.card p{color:rgba(255,255,255,.72);font-size:.98rem;margin:0}
+
+/* ---------- Doctor ---------- */
+.doctor-grid{display:grid;grid-template-columns:1fr;gap:clamp(30px,4vw,54px);align-items:start}
+.photo-slot{
+  aspect-ratio:4/5;max-width:400px;width:100%;border-radius:20px;
+  background:linear-gradient(160deg,var(--blue-soft),#fff);
+  border:1px dashed rgba(0,0,182,.3);
+  display:grid;place-content:center;gap:8px;text-align:center;padding:26px;
+  color:var(--blue);font-size:.86rem;font-weight:700;
+}
+.photo-slot svg{width:34px;height:34px;margin-inline:auto;fill:var(--blue);opacity:.55}
+.photo-slot span{font-weight:500;color:var(--muted);font-size:.8rem;max-width:22ch}
+
+.creds{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:2px}
+.creds li{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:15px 0;border-bottom:1px solid var(--line);font-size:.99rem;
+}
+.creds li:last-child{border-bottom:0}
+.creds svg{width:18px;height:18px;flex:none;margin-top:4px;fill:var(--pink)}
+.creds strong{font-weight:800}
+.creds .hl{background:var(--blue-soft);border-radius:12px;padding:15px 16px;border-bottom:0;color:var(--blue);font-weight:600}
+.creds .hl svg{fill:var(--blue)}
+
+/* ---------- Precio ---------- */
+.pricing{background:var(--bg-alt);border-block:1px solid var(--line)}
+.price-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.price-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px 28px;box-shadow:0 2px 10px rgba(10,10,35,.04);
+  display:flex;flex-direction:column;
+}
+.price-card.featured{border:2px solid var(--blue);box-shadow:var(--shadow);position:relative}
+.price-tag{
+  position:absolute;top:-13px;left:28px;background:var(--grad);color:#fff;
+  font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:6px 14px;border-radius:999px;
+}
+.price-card h3{margin-bottom:6px}
+.amount{font-size:clamp(2.2rem,5vw,3rem);font-weight:800;letter-spacing:-.04em;color:var(--blue);line-height:1;margin:14px 0 4px}
+.amount small{font-size:1rem;font-weight:700;color:var(--muted);letter-spacing:0}
+.price-card ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:11px}
+.price-card ul li{display:flex;gap:11px;align-items:flex-start;font-size:.95rem;color:var(--muted)}
+.price-card ul svg{width:17px;height:17px;flex:none;margin-top:4px;fill:var(--pink)}
+.finance{
+  margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 26px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+}
+.finance p{margin:0;font-size:.97rem;color:var(--muted);max-width:52ch}
+.finance strong{color:var(--ink)}
+.note{font-size:.92rem;color:var(--muted);margin-top:20px;font-style:italic}
+
+/* ---------- Testimonios ---------- */
+.t-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.t-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;display:flex;flex-direction:column;gap:16px;
+  box-shadow:0 2px 10px rgba(10,10,35,.04);
+}
+.stars{display:flex;gap:3px}
+.stars svg{width:17px;height:17px;fill:#FFB020}
+.t-card blockquote{margin:0;font-size:1rem;line-height:1.62;color:var(--ink)}
+.t-who{display:flex;align-items:center;gap:13px;margin-top:auto;padding-top:6px}
+.avatar{
+  width:46px;height:46px;border-radius:50%;flex:none;
+  background:linear-gradient(160deg,var(--blue-soft),#fff);
+  border:1px dashed rgba(0,0,182,.32);
+  display:grid;place-items:center;font-size:.62rem;font-weight:700;color:var(--blue);text-align:center;line-height:1.1;
+}
+.t-who div b{display:block;font-size:.92rem;font-weight:800}
+.t-who div span{font-size:.8rem;color:var(--muted)}
+.legal-note{
+  margin-top:26px;font-size:.84rem;color:var(--muted);line-height:1.6;
+  border-left:3px solid var(--line);padding-left:16px;max-width:70ch;
+}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--bg-alt);border-block:1px solid var(--line)}
+.faq-list{max-width:820px}
+details{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  margin-bottom:12px;overflow:hidden;
+}
+details[open]{border-color:rgba(0,0,182,.34);box-shadow:0 6px 24px -14px rgba(10,10,35,.3)}
+summary{
+  cursor:pointer;list-style:none;padding:21px 56px 21px 24px;
+  font-weight:700;font-size:1.02rem;position:relative;line-height:1.4;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"";position:absolute;right:24px;top:50%;width:11px;height:11px;
+  border-right:2.5px solid var(--blue);border-bottom:2.5px solid var(--blue);
+  transform:translateY(-70%) rotate(45deg);transition:transform .22s var(--ease);
+}
+details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+details .answer{padding:0 24px 23px;color:var(--muted);font-size:.99rem;line-height:1.68}
+details .answer p{margin:0}
+.pending{
+  display:inline-block;background:#FFF4E0;border:1px solid #F0D28A;color:#8A5A00;
+  font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:999px;margin-left:6px;vertical-align:middle;
+}
+
+/* ---------- CTA final ---------- */
+.final-cta{background:var(--blue-deep);color:#fff;text-align:center;position:relative;overflow:hidden}
+.final-cta::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(640px 360px at 50% 100%,rgba(255,46,136,.34),transparent 62%);
+}
+.final-cta .wrap{position:relative;z-index:1;max-width:780px}
+.final-cta h2{color:#fff}
+.final-cta p{color:rgba(255,255,255,.76);margin:20px auto 34px;max-width:52ch;font-size:1.1rem}
+.final-cta .btn{margin-inline:auto}
+.final-meta{margin-top:26px;font-size:.88rem;color:rgba(255,255,255,.6)}
+
+/* ---------- Footer ---------- */
+.site-footer{background:#05051A;color:rgba(255,255,255,.62);font-size:.9rem;padding-block:56px 40px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:34px}
+.site-footer h4{margin:0 0 14px;color:#fff;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800}
+.site-footer p{margin:0 0 9px;line-height:1.6}
+.site-footer a{color:rgba(255,255,255,.8);text-decoration:none}
+.site-footer a:hover{color:var(--pink)}
+.socials{display:flex;gap:12px;margin-top:14px}
+.socials a{
+  width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);
+  display:grid;place-items:center;transition:background .2s var(--ease);
+}
+.socials a:hover{background:var(--pink)}
+.socials svg{width:18px;height:18px;fill:#fff}
+.footer-legal{
+  margin-top:38px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12);
+  font-size:.8rem;line-height:1.7;color:rgba(255,255,255,.5);
+}
+.footer-legal strong{color:rgba(255,255,255,.8);font-weight:700}
+
+/* ---------- WhatsApp flotante ---------- */
+.wa-float{
+  position:fixed;z-index:80;left:16px;right:16px;bottom:16px;
+  display:flex;justify-content:center;
+  animation:rise .5s var(--ease) .8s both;
+}
+.wa-float .btn{width:100%;max-width:520px;box-shadow:0 16px 40px -10px rgba(255,46,136,.7)}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
+
+/* ---------- Desktop ---------- */
+@media (min-width:760px){
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .price-grid{grid-template-columns:repeat(2,1fr)}
+  .t-grid{grid-template-columns:repeat(3,1fr)}
+  .hero-actions{flex-direction:row;align-items:center;gap:24px}
+  .footer-grid{grid-template-columns:1.4fr 1fr 1fr}
+}
+@media (min-width:980px){
+  .hero-grid{grid-template-columns:1.08fr .92fr}
+  .doctor-grid{grid-template-columns:.85fr 1.15fr}
+  .header-cta{display:inline-flex}
+  body{padding-bottom:0}
+  .wa-float{left:auto;right:28px;bottom:28px}
+  .wa-float .btn{width:auto}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="Swiss Dental — inicio">
+      <!-- REEMPLAZAR si se entrega versión final del logo -->
+      <img src="logo-swiss-dental.svg" alt="Swiss Dental" width="120" height="40">
+    </a>
+    <a class="btn btn-wa btn-sm header-cta" data-wa href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.78 9.78 0 0 1-1.5-5.22c0-5.4 4.4-9.8 9.82-9.8 2.62 0 5.08 1.03 6.93 2.88a9.74 9.74 0 0 1 2.87 6.93c0 5.4-4.4 9.81-9.81 9.81M20.52 3.45A11.7 11.7 0 0 0 12.05 0C5.6 0 .35 5.25.35 11.7c0 2.06.54 4.07 1.56 5.85L.25 24l6.6-1.73a11.67 11.67 0 0 0 5.2 1.24h.01c6.45 0 11.7-5.25 11.7-11.7 0-3.13-1.22-6.07-3.43-8.28"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ 2. HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Micro-odontología · Tlaxcala</span>
+      <h1>Tratamientos sin dolor, sin estrés, gracias a la <span class="accent">micro-odontología</span></h1>
+      <p class="lead">La micro-odontología es la forma más precisa de cuidar tu boca: evita el dolor innecesario, preserva al máximo tu tejido dental y aumenta la efectividad real de cualquier tratamiento — con la única clínica en Tlaxcala especializada en esta tecnología.</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-wa btn-lg" data-wa href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.78 9.78 0 0 1-1.5-5.22c0-5.4 4.4-9.8 9.82-9.8 2.62 0 5.08 1.03 6.93 2.88a9.74 9.74 0 0 1 2.87 6.93c0 5.4-4.4 9.81-9.81 9.81M20.52 3.45A11.7 11.7 0 0 0 12.05 0C5.6 0 .35 5.25.35 11.7c0 2.06.54 4.07 1.56 5.85L.25 24l6.6-1.73a11.67 11.67 0 0 0 5.2 1.24h.01c6.45 0 11.7-5.25 11.7-11.7 0-3.13-1.22-6.07-3.43-8.28"/></svg>
+          Agenda tu valoración por WhatsApp
+        </a>
+      </div>
+
+      <div class="badge" style="margin-top:26px">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Zm-1.2 15.4-4.2-4.2 1.7-1.7 2.5 2.5 5.7-5.7 1.7 1.7-7.4 7.4Z"/></svg>
+        <span>Primera clínica de odontología asistida con microscopio en Tlaxcala–Puebla, desde 2018.</span>
+      </div>
+    </div>
+
+    <div class="optic" aria-hidden="true">
+      <!-- REEMPLAZAR: foto real del microscopio / consultorio (formato cuadrado, .webp) -->
+      <div class="optic-rings">
+        <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+        <div class="optic-core"></div>
+      </div>
+      <div class="optic-label">Visión asistida con microscopio<span>Magnificación de hasta 30 aumentos</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. EL PROBLEMA ============ -->
+<section class="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">01 — El punto de partida</span>
+      <h2>Sabemos por qué no te gusta ir al dentista</h2>
+    </div>
+    <div class="problem-body">
+      <p>La mayoría de la gente evita el dentista por miedo al dolor, por el estrés de la cita, o por tratamientos incómodos que se sienten más invasivos de lo necesario.</p>
+      <p>Gran parte de esa incomodidad viene de un límite técnico simple: <strong>el ojo humano no puede ver con precisión lo que pasa dentro de tu boca.</strong> Cuando el diagnóstico depende solo de la vista a simple vista del odontólogo, los tratamientos tienden a ser menos precisos — y eso se traduce en más dolor, más tiempo en el sillón y más tejido dental removido del que realmente hace falta.</p>
+      <div class="problem-pills">
+        <span class="pill">Miedo al dolor</span>
+        <span class="pill">Estrés de la cita</span>
+        <span class="pill">Tratamientos invasivos</span>
+        <span class="pill">Más tiempo en el sillón</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. EL MECANISMO ============ -->
+<section class="mechanism">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow on-dark">02 — Cómo lo resolvemos</span>
+      <h2>Vemos lo que un examen tradicional no puede ver</h2>
+      <div class="mag-stat"><b>30×</b><span>de magnificación óptica</span></div>
+      <p class="lead">Con microscopio de alta precisión, el Dr. Arturo Tapia identifica el problema exacto antes de tocar el diente — no a simple vista, sino con el mismo nivel de detalle que usan los especialistas en los casos más complejos.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <span class="num">01</span>
+        <h3>Mínimamente invasivo</h3>
+        <p>Tratamientos que conservan más tejido dental sano, porque se interviene únicamente la zona afectada.</p>
+      </article>
+      <article class="card">
+        <span class="num">02</span>
+        <h3>Mayor efectividad por sesión</h3>
+        <p>Al intervenir solo donde realmente hace falta, cada cita aprovecha mejor el tiempo y el tratamiento.</p>
+      </article>
+      <article class="card">
+        <span class="num">03</span>
+        <h3>Más cortos y predecibles</h3>
+        <p>Procedimientos con menos sorpresas a mitad de la cita, porque el diagnóstico se hace antes de empezar.</p>
+      </article>
+    </div>
+    <!-- PENDIENTE PRODUCCIÓN: si el doctor confirma que ciertos casos no requieren anestesia
+         gracias a la detección temprana, agregar esa línea aquí. No asumir sin confirmación. -->
+  </div>
+</section>
+
+<!-- ============ 5. EL DOCTOR ============ -->
+<section>
+  <div class="wrap">
+    <div class="doctor-grid">
+      <div>
+        <div class="photo-slot">
+          <!-- REEMPLAZAR: foto real del doctor (existe en drarturotapia.com, usar con autorización) -->
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5Z"/></svg>
+          <strong>Foto del Dr. Arturo Ramírez Tapia</strong>
+          <span>Formato vertical 4:5, fondo de consultorio</span>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">03 — Quién te atiende</span>
+        <h2>Dr. Arturo Ramírez Tapia</h2>
+        <p class="lead">Más de 20 años de ejercicio clínico y el fundador de la primera clínica de odontología general asistida con microscopio en la zona Tlaxcala–Puebla.</p>
+
+        <ul class="creds">
+          <li class="hl">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Zm-1.2 15.4-4.2-4.2 1.7-1.7 2.5 2.5 5.7-5.7 1.7 1.7-7.4 7.4Z"/></svg>
+            <span><strong>Fundador de la primera clínica de odontología general asistida con microscopio</strong> en la zona Tlaxcala–Puebla (2018).</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span>Cirujano Dentista — U.P.A.E.P., 2001.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span>Especialista en Ortodoncia — U.P.A.E.P., 2008.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span>Certificación vigente por la <strong>Asociación Mexicana de Ortodoncia</strong>, Federación de Colegios de Ortodoncistas A.C. — recertificado en 2022.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span>Socio activo de la <strong>Academy of Microscope Enhanced Dentistry</strong> (EE.UU.), la asociación internacional específica de odontología con microscopio.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span>Socio activo de la Asociación Latinoamericana de Ortodoncia, la World Federation of Orthodontists y la American Association of Orthodontists.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. PRECIO ============ -->
+<section class="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">04 — Precio transparente</span>
+      <h2>Sabes cuánto cuesta antes de entrar</h2>
+      <p class="lead">Sin sorpresas ni cobros ocultos. Tu primera valoración ya incluye todo el diagnóstico con tecnología de precisión.</p>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card featured">
+        <span class="price-tag">Empieza aquí</span>
+        <h3>Primera visita</h3>
+        <div class="amount">$900 <small>MXN</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Evaluación con microscopio dental</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Cámara intraoral</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Radiografías digitales</span></li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <h3>Cita de urgencia</h3>
+        <div class="amount">$1,600 <small>MXN</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Atención prioritaria fuera de agenda</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Valoración inmediata del caso</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="finance">
+      <p><strong>Financiamiento a meses sin intereses</strong> disponible con Visa, Mastercard y American Express.</p>
+      <a class="btn btn-wa btn-sm" data-wa href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.78 9.78 0 0 1-1.5-5.22c0-5.4 4.4-9.8 9.82-9.8 2.62 0 5.08 1.03 6.93 2.88a9.74 9.74 0 0 1 2.87 6.93c0 5.4-4.4 9.81-9.81 9.81M20.52 3.45A11.7 11.7 0 0 0 12.05 0C5.6 0 .35 5.25.35 11.7c0 2.06.54 4.07 1.56 5.85L.25 24l6.6-1.73a11.67 11.67 0 0 0 5.2 1.24h.01c6.45 0 11.7-5.25 11.7-11.7 0-3.13-1.22-6.07-3.43-8.28"/></svg>
+        Consultar mi caso
+      </a>
+    </div>
+
+    <!-- PENDIENTE PRODUCCIÓN: sustituir por el precio del tratamiento de eliminación de caries con microscopio -->
+    <p class="note">El costo exacto de tu tratamiento se confirma en tu primera valoración, según tu caso.</p>
+  </div>
+</section>
+
+<!-- ============ 7. PRUEBA SOCIAL ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">05 — Prueba social</span>
+      <h2>Lo que dicen nuestros pacientes</h2>
+    </div>
+
+    <div class="t-grid">
+      <article class="t-card">
+        <div class="stars" aria-label="5 de 5 estrellas">
+          <svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <blockquote>“La atención es muy amable, te dan seguridad, me tuvieron mucha paciencia, el consultorio está muy limpio, son puntuales con las citas.”</blockquote>
+        <div class="t-who">
+          <!-- REEMPLAZAR: foto del paciente (con consentimiento) o del consultorio -->
+          <div class="avatar">FOTO</div>
+          <div><b>Paciente Swiss Dental</b><span>Reseña pública verificada</span></div>
+        </div>
+      </article>
+
+      <article class="t-card">
+        <div class="stars" aria-label="5 de 5 estrellas">
+          <svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <blockquote>“Amables en la atención, accesibles cuando se agenda la cita, respetando los tiempos, no demorando en la atención.”</blockquote>
+        <div class="t-who">
+          <div class="avatar">FOTO</div>
+          <div><b>Paciente verificado</b><span>Reseña pública verificada</span></div>
+        </div>
+      </article>
+
+      <article class="t-card">
+        <div class="stars" aria-label="5 de 5 estrellas">
+          <svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <blockquote>“Fue excelente tanto por el Dr. Arturo como por el resto del equipo… muy amables, cariñosos y profesionales, ayudándome a tomar la mejor decisión.”</blockquote>
+        <div class="t-who">
+          <div class="avatar">FOTO</div>
+          <div><b>Paciente Swiss Dental</b><span>Reseña pública verificada</span></div>
+        </div>
+      </article>
+    </div>
+
+    <p class="legal-note">Los testimonios reflejan la experiencia personal de cada paciente y no constituyen una promesa de resultado. Cada tratamiento se determina de forma individual según la valoración clínica.</p>
+    <!-- RECOMENDADO: sustituir por testimonios en video grabados con consentimiento,
+         específicos al servicio de micro-odontología. -->
+  </div>
+</section>
+
+<!-- ============ 8. FAQ ============ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">06 — Preguntas frecuentes</span>
+      <h2>Lo que la gente nos pregunta antes de agendar</h2>
+    </div>
+
+    <div class="faq-list">
+      <details open>
+        <summary>¿Qué es la odontología asistida con microscopio?</summary>
+        <div class="answer"><p>Es un enfoque de diagnóstico y tratamiento que usa magnificación óptica de alta precisión para ver detalles del diente invisibles a simple vista, permitiendo intervenciones más exactas y conservadoras.</p></div>
+      </details>
+
+      <details>
+        <summary>¿El tratamiento con microscopio duele más que uno tradicional?</summary>
+        <div class="answer"><p>Al ser más preciso y menos invasivo, la experiencia suele ser más cómoda, no menos — se interviene solo lo necesario.</p></div>
+      </details>
+
+      <details>
+        <summary>¿En qué se diferencia de una revisión dental normal?</summary>
+        <div class="answer"><p>Una revisión normal depende de la vista directa del dentista; con microscopio se detectan lesiones y detalles en etapas mucho más tempranas.</p></div>
+      </details>
+
+      <details>
+        <summary>¿Es necesaria la anestesia?</summary>
+        <div class="answer"><p>Depende del caso — se determina en tu valoración inicial con el doctor.</p></div>
+      </details>
+
+      <details>
+        <summary>¿Cuánto dura la consulta de valoración? <span class="pending">Pendiente</span></summary>
+        <!-- PENDIENTE PRODUCCIÓN: confirmar duración con el doctor y quitar el badge -->
+        <div class="answer"><p>La duración se confirma al agendar, según el motivo de tu consulta. Escríbenos por WhatsApp y te damos el detalle.</p></div>
+      </details>
+
+      <details>
+        <summary>¿Cuánto cuesta la primera valoración?</summary>
+        <div class="answer"><p>$900 MXN, e incluye evaluación con microscopio, cámara intraoral y radiografías digitales.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. CTA FINAL ============ -->
+<section class="final-cta">
+  <div class="wrap">
+    <span class="eyebrow on-dark">Da el primer paso</span>
+    <h2>Conoce el estado real de tu boca, con precisión</h2>
+    <p>Escríbenos por WhatsApp y agenda tu valoración con microscopio. Te respondemos con la información que necesites, sin compromiso.</p>
+    <a class="btn btn-wa btn-lg" data-wa href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.78 9.78 0 0 1-1.5-5.22c0-5.4 4.4-9.8 9.82-9.8 2.62 0 5.08 1.03 6.93 2.88a9.74 9.74 0 0 1 2.87 6.93c0 5.4-4.4 9.81-9.81 9.81M20.52 3.45A11.7 11.7 0 0 0 12.05 0C5.6 0 .35 5.25.35 11.7c0 2.06.54 4.07 1.56 5.85L.25 24l6.6-1.73a11.67 11.67 0 0 0 5.2 1.24h.01c6.45 0 11.7-5.25 11.7-11.7 0-3.13-1.22-6.07-3.43-8.28"/></svg>
+      Agenda tu valoración por WhatsApp
+    </a>
+    <p class="final-meta">Primera visita $900 MXN · Meses sin intereses disponibles</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 10. FOOTER LEGAL ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img src="logo-swiss-dental.svg" alt="Swiss Dental" width="132" height="44" style="filter:brightness(0) invert(1);opacity:.9;margin-bottom:18px">
+        <p>Odontología asistida con microscopio en Tlaxcala.</p>
+        <div class="socials">
+          <!-- REEMPLAZAR: URLs reales de redes -->
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.5-3.89 3.77-3.89 1.1 0 2.24.19 2.24.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.89 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+          <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Consultorio</h4>
+        <p>Carretera Tlaxcala a Texoloc #31,<br>San Diego Metepec, Tlaxcala</p>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <p><a data-wa href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></p>
+        <p>Primera visita: $900 MXN</p>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <p><strong>Aviso de Publicidad COFEPRIS:</strong> 2529012002A00051</p>
+      <!-- PENDIENTE PRODUCCIÓN: incluir número exacto de cédula profesional -->
+      <p><strong>Cédula profesional Dr. Arturo Ramírez Tapia:</strong> {{CEDULA_PROFESIONAL}}</p>
+      <p>La información de este sitio tiene fines orientativos y educativos, y no sustituye una consulta ni un diagnóstico profesional. Todo tratamiento se determina de forma individual tras la valoración clínica correspondiente.</p>
+      <p>© <span id="year">2026</span> Swiss Dental — Dr. Arturo Ramírez Tapia. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOTANTE ============ -->
+<div class="wa-float">
+  <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.78 9.78 0 0 1-1.5-5.22c0-5.4 4.4-9.8 9.82-9.8 2.62 0 5.08 1.03 6.93 2.88a9.74 9.74 0 0 1 2.87 6.93c0 5.4-4.4 9.81-9.81 9.81M20.52 3.45A11.7 11.7 0 0 0 12.05 0C5.6 0 .35 5.25.35 11.7c0 2.06.54 4.07 1.56 5.85L.25 24l6.6-1.73a11.67 11.67 0 0 0 5.2 1.24h.01c6.45 0 11.7-5.25 11.7-11.7 0-3.13-1.22-6.07-3.43-8.28"/></svg>
+    Agenda tu valoración por WhatsApp
+  </a>
+</div>
+
+<!-- ============ SCHEMA.ORG ============ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Dentist",
+  "name":"Swiss Dental — Dr. Arturo Ramírez Tapia",
+  "description":"Clínica de odontología asistida con microscopio en Tlaxcala. Primera clínica especializada en micro-odontología en la zona Tlaxcala–Puebla desde 2018.",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Carretera Tlaxcala a Texoloc #31",
+    "addressLocality":"San Diego Metepec",
+    "addressRegion":"Tlaxcala",
+    "addressCountry":"MX"
+  },
+  "founder":{
+    "@type":"Person",
+    "name":"Dr. Arturo Ramírez Tapia",
+    "jobTitle":"Cirujano Dentista · Especialista en Ortodoncia",
+    "alumniOf":"U.P.A.E.P."
+  },
+  "priceRange":"$$"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"¿Qué es la odontología asistida con microscopio?","acceptedAnswer":{"@type":"Answer","text":"Es un enfoque de diagnóstico y tratamiento que usa magnificación óptica de alta precisión para ver detalles del diente invisibles a simple vista, permitiendo intervenciones más exactas y conservadoras."}},
+    {"@type":"Question","name":"¿El tratamiento con microscopio duele más que uno tradicional?","acceptedAnswer":{"@type":"Answer","text":"Al ser más preciso y menos invasivo, la experiencia suele ser más cómoda, no menos — se interviene solo lo necesario."}},
+    {"@type":"Question","name":"¿En qué se diferencia de una revisión dental normal?","acceptedAnswer":{"@type":"Answer","text":"Una revisión normal depende de la vista directa del dentista; con microscopio se detectan lesiones y detalles en etapas mucho más tempranas."}},
+    {"@type":"Question","name":"¿Es necesaria la anestesia?","acceptedAnswer":{"@type":"Answer","text":"Depende del caso — se determina en tu valoración inicial con el doctor."}},
+    {"@type":"Question","name":"¿Cuánto cuesta la primera valoración?","acceptedAnswer":{"@type":"Answer","text":"$900 MXN, e incluye evaluación con microscopio, cámara intraoral y radiografías digitales."}}
+  ]
+}
+</script>
+
+<!-- ============ META PIXEL ============ -->
+<script>
+/* REEMPLAZAR {{META_PIXEL_ID}} por el ID real del pixel de Meta */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','{{META_PIXEL_ID}}');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id={{META_PIXEL_ID}}&ev=PageView&noscript=1"></noscript>
+
+<!-- ============ LÓGICA ============ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ---- CONFIGURACIÓN — único lugar a editar ---- */
+  var WHATSAPP_NUMBER  = '{{WHATSAPP_NUMBER}}'; // formato internacional sin +, ej: 5212461234567
+  var WHATSAPP_MESSAGE = 'Hola, vi la página sobre odontología con microscopio y quiero información';
+
+  var href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(WHATSAPP_MESSAGE);
+  var links = document.querySelectorAll('[data-wa]');
+
+  Array.prototype.forEach.call(links, function(a){
+    a.setAttribute('href', href);
+
+    a.addEventListener('click', function(){
+      /* Evento Lead de Meta antes de salir. El link abre en pestaña nueva,
+         así que la petición del pixel alcanza a completarse. */
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead', {
+          content_name: 'Micro-odontologia — WhatsApp',
+          source: a.closest('section, header, footer, .wa-float')
+                   ? (a.closest('.wa-float') ? 'floating' : (a.closest('header') ? 'header' : (a.closest('footer') ? 'footer' : 'section')))
+                   : 'unknown'
+        });
+      }
+    });
+  });
+
+  /* ---- Año dinámico ---- */
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* ---- Reveal al hacer scroll ---- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.section-head, .problem-body, .card, .photo-slot, .creds, .price-card, .finance, .t-card, .faq-list, .final-cta .wrap > *');
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(targets, function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+
+  Array.prototype.forEach.call(targets, function(el, i){
+    el.classList.add('reveal');
+    el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms';
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+
+  Array.prototype.forEach.call(targets, function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
