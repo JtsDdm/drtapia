@@ -424,6 +424,43 @@ details .answer p{margin:0}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.is-visible{opacity:1;transform:none}
 
+/* ---------- Móvil ---------- */
+@media (max-width:759px){
+  /* El cuerpo del hero va justificado a ambos márgenes. En una columna angosta
+     el justificado abre huecos entre palabras, así que se activa el guionado
+     (funciona porque el <html> declara lang="es-MX") y la última línea se deja
+     a la izquierda, que es como se compone un párrafo justificado. */
+  .hero .lead{
+    text-align:justify;
+    text-align-last:left;
+    -webkit-hyphens:auto;hyphens:auto;
+    margin-top:18px;
+  }
+  /* El h1 no se justifica: con dos o tres palabras por línea los huecos se
+     vuelven tan anchos que el titular se lee roto. Queda en bandera, pero
+     aprovechando todo el ancho (sin balance, que acorta la primera línea y
+     desalinea el bloque respecto al párrafo justificado de abajo). */
+  .hero h1{font-size:clamp(1.95rem,8.6vw,2.35rem);line-height:1.12}
+
+  /* El badge ocupa el ancho de la columna, pero su texto NO se justifica:
+     son dos o tres líneas de palabras largas y el justificado abría huecos
+     enormes entre ellas (se ve claramente a 320px). */
+  .hero .badge{max-width:none}
+
+  /* El CTA toma el ancho de la columna. Antes la píldora se ajustaba al texto
+     y "Agenda tu valoración por WhatsApp" caía en dos líneas descentradas. */
+  .hero-actions{width:100%}
+  .hero-actions .btn{width:100%}
+  .hero .btn-lg{padding:18px 22px;font-size:1.02rem}
+
+  /* El retrato cuadrado a ancho completo empujaba el resto de la página muy
+     abajo; acotado deja ver que el hero continúa. */
+  .optic{max-width:370px}
+  .optic-label{padding:16px 18px}
+
+  .hero{padding-bottom:clamp(44px,8vw,56px)}
+}
+
 /* ---------- Desktop ---------- */
 @media (min-width:760px){
   .cards{grid-template-columns:repeat(3,1fr)}
