@@ -27,7 +27,7 @@ Escribe cada valor **entre las comillas**:
 
 | Dato | Qué poner | Ejemplo |
 |---|---|---|
-| `whatsapp` | El número que va a recibir los mensajes, en formato internacional, **sin `+`, sin espacios y sin guiones** | `'522461441431'` |
+| `whatsapp` | El número que va a recibir los mensajes, en formato internacional, **sin `+`, sin espacios y sin guiones** | `'522462410157'` |
 | `pixelId` | El ID del pixel de Meta, solo los números | `'123456789012345'` |
 | `cedula` | La cédula profesional del Dr. Arturo Ramírez Tapia | `'1234567'` |
 

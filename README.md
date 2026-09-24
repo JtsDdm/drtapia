@@ -31,7 +31,7 @@ Los tres datos variables (`whatsapp`, `pixelId`, `cedula`) viven en el objeto
 
 Valores actuales:
 
-- `whatsapp`: `522461441431`
+- `whatsapp`: `522462410157`
 - `pixelId`: `1434057772157943` — pixel de Meta en uso para las campañas de micro-odontología
 - `cedula`: `3637698 · 6075426` — las dos cédulas del doctor; el pie las muestra como "Cédulas profesionales"
 
