@@ -29,6 +29,12 @@ Sin build, sin dependencias, sin peticiones externas. Se sube tal cual a cualqui
 Los tres datos variables (`whatsapp`, `pixelId`, `cedula`) viven en el objeto
 `window.SWISS_CONFIG`, al final de `index.html`. Todo lo demás los lee de ahí.
 
+Valores actuales:
+
+- `whatsapp`: `522461441431`
+- `pixelId`: `1258416829427122` — "Swiss Dental Pixel", del portfolio comercial Swiss Dental en Meta
+- `cedula`: `3637698 · 6075426` — las dos cédulas del doctor; el pie las muestra como "Cédulas profesionales"
+
 La página **falla a la vista, no en silencio**: sin número de WhatsApp muestra una franja
 roja de "SIN PUBLICAR" y desactiva los botones, en vez de dejar seis CTAs que parecen
 funcionar y no llevan a ninguna parte. Sin cédula, esa línea del pie no se imprime en
@@ -129,7 +135,7 @@ promesa de "un único lugar que editar" — y sin JavaScript tampoco se registra
 
 ## Deploy
 
-HTML estático. Se suben todos los archivos de la lista de arriba a Netlify, Vercel,
-Hostinger o una subcarpeta del WordPress actual. **Si la dirección final no es
-`https://drarturotapia.com/micro-odontologia/`, hay que actualizarla** en `canonical`,
-`og:url`, `og:image` y el JSON-LD — está explicado en [PUBLICAR.md](PUBLICAR.md).
+HTML estático en Vercel: cada push a `main` se publica solo en
+**https://micro.drarturotapia.com/** (y en `drtapia.vercel.app`). Esa dirección es la que
+llevan `canonical`, `og:url`, `og:image` y el JSON-LD; si algún día cambia, hay que
+actualizarla en esos cuatro sitios — está explicado en [PUBLICAR.md](PUBLICAR.md).

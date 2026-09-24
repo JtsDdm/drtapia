@@ -3,6 +3,10 @@
 Lista pensada para alguien que **no programa**. Son tres datos que hay que escribir
 y un par de comprobaciones. Nada más.
 
+> **Estado actual:** los tres datos ya están puestos (WhatsApp, pixel `1258416829427122`
+> y las cédulas `3637698 · 6075426`) y la dirección ya es `https://micro.drarturotapia.com/`.
+> Los pasos 1 y 3 solo hacen falta si alguno de esos datos cambia.
+
 ---
 
 ## Paso 1 · Rellenar los tres datos
@@ -69,9 +73,9 @@ fonts/manrope-latin-ext.woff2
 
 ## Paso 3 · Ajustar la dirección definitiva
 
-Si la página **no** va a vivir en `https://drarturotapia.com/micro-odontologia/`,
+La página vive en `https://micro.drarturotapia.com/`. Si algún día se muda,
 hay que cambiar esa dirección en 4 líneas del `index.html`. Busca
-`drarturotapia.com/micro-odontologia` y reemplaza por la dirección real.
+`micro.drarturotapia.com` y reemplaza por la dirección nueva.
 
 Si no se hace, dos cosas fallan:
 
