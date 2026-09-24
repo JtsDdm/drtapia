@@ -32,7 +32,7 @@ Los tres datos variables (`whatsapp`, `pixelId`, `cedula`) viven en el objeto
 Valores actuales:
 
 - `whatsapp`: `522461441431`
-- `pixelId`: `1258416829427122` — "Swiss Dental Pixel", del portfolio comercial Swiss Dental en Meta
+- `pixelId`: `1434057772157943` — pixel de Meta en uso para las campañas de micro-odontología
 - `cedula`: `3637698 · 6075426` — las dos cédulas del doctor; el pie las muestra como "Cédulas profesionales"
 
 La página **falla a la vista, no en silencio**: sin número de WhatsApp muestra una franja

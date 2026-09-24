@@ -3,7 +3,7 @@
 Lista pensada para alguien que **no programa**. Son tres datos que hay que escribir
 y un par de comprobaciones. Nada más.
 
-> **Estado actual:** los tres datos ya están puestos (WhatsApp, pixel `1258416829427122`
+> **Estado actual:** los tres datos ya están puestos (WhatsApp, pixel `1434057772157943`
 > y las cédulas `3637698 · 6075426`) y la dirección ya es `https://micro.drarturotapia.com/`.
 > Los pasos 1 y 3 solo hacen falta si alguno de esos datos cambia.
 
