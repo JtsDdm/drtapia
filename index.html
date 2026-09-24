@@ -299,12 +299,6 @@ p{margin:0 0 1.15em}
 
 .mechanism-head{display:grid;grid-template-columns:1fr;gap:20px;align-items:center}
 .mechanism-head .section-head{margin-bottom:0}
-.mechanism-photo{max-width:320px;width:100%;margin-inline:auto}
-.mechanism-photo img{
-  width:100%;height:auto;border-radius:20px;display:block;
-  box-shadow:0 24px 60px -18px rgba(0,0,0,.6);
-}
-.mechanism-photo-end{margin-top:36px}
 
 .cards{display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px}
 .card{
@@ -533,6 +527,149 @@ details .answer p{margin:0}
   .wa-float .btn{width:auto}
 }
 
+
+/* ============================================================
+   AJUSTES RESPONSIVE Y DE COMPOSICIÓN
+   Van al final a propósito: sobrescriben reglas de arriba sin tocarlas.
+   Objetivos: cada foto con espacio protagónico, textos alineados de forma
+   coherente por sección, y ningún botón partido en dos renglones en móvil.
+   ============================================================ */
+.hero-badge{margin-top:26px}
+
+/* Hero: el retrato pasa a 4:5 — más alto, más presencia. La foto original es
+   cuadrada con el doctor a la derecha del encuadre; el recorte lo centra. */
+.optic{aspect-ratio:4/5;max-width:520px}
+.optic-photo{object-position:74% 50%}
+.optic-label{padding:22px 24px;font-size:.95rem}
+.optic-label span{font-size:.84rem}
+
+/* El punto de partida: el eyebrow va solo, no necesita el margen de un título completo. */
+.problem .section-head{margin-bottom:18px}
+.problem-grid{gap:16px;margin-top:38px}
+.problem-card{padding:20px 22px}
+.problem-card h3{font-size:1.02rem;margin-bottom:4px}
+.problem-card p{font-size:.92rem}
+
+/* Cómo lo resolvemos: las dos fotos del microscopio forman un collage en vez
+   de ir una arriba y otra suelta al final de la sección. */
+.mechanism-head{gap:clamp(40px,5vw,64px);margin-bottom:clamp(56px,7vw,88px)}
+.mech-photos{
+  position:relative;display:grid;grid-template-columns:repeat(12,1fr);
+  width:100%;max-width:520px;margin:0 auto;
+}
+.mech-photo{margin:0;grid-row:1}
+.mech-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:22px}
+.mech-photo-main{grid-column:4 / 13}
+.mech-photo-main img{aspect-ratio:2/3;box-shadow:0 30px 70px -24px rgba(0,0,0,.7)}
+.mech-photo-sub{grid-column:1 / 8;align-self:end;margin-bottom:-12%;z-index:2}
+.mech-photo-sub img{
+  aspect-ratio:1/1;border:6px solid var(--blue-deep);border-radius:26px;
+  box-shadow:0 24px 50px -16px rgba(0,0,0,.75),0 0 40px 2px rgba(227,27,109,.28);
+}
+.cards{gap:20px;margin-top:0}
+.card{padding:30px 26px;text-align:center}
+.card p{font-size:1rem;line-height:1.62}
+
+/* Quién te atiende: foto grande en 4:5 y aire entre nombre y descripción. */
+.photo-slot{max-width:540px;margin-inline:auto}
+.photo-slot img{aspect-ratio:4/5;object-fit:cover;object-position:50% 40%;border-radius:24px}
+.photo-caption{font-size:.84rem;margin-top:16px}
+.doctor-grid .lead{margin-top:18px}
+.creds{margin-top:30px;gap:12px}
+
+/* Testimonios y FAQ: un poco más de cuerpo de lectura. */
+.t-card blockquote{font-size:1.04rem}
+details .answer{font-size:1.02rem}
+.legal-note{margin-top:32px}
+
+/* ---------- Móvil ---------- */
+@media (max-width:759px){
+  .wrap{padding-inline:20px}
+
+  /* Hero centrado de arriba abajo: eyebrow, titular y párrafo comparten eje.
+     El párrafo deja de ir justificado con guiones — partía palabras como
+     "micro-odontología" y "claridad" a media línea. */
+  .hero .eyebrow{display:flex;justify-content:center;flex-wrap:wrap}
+  .hero .lead{text-align:center;text-align-last:auto;-webkit-hyphens:manual;hyphens:manual;margin-inline:auto}
+  .optic{max-width:none}
+
+  /* Botones de WhatsApp en un solo renglón: tipografía que escala con el ancho
+     de la pantalla en lugar de partir "WhatsApp" a una segunda línea. */
+  .hero .btn-lg,.final-cta .btn-lg,.wa-float .btn{
+    font-size:clamp(.84rem,4.05vw,1.02rem);padding:17px 14px;gap:9px;white-space:nowrap;
+  }
+  .final-cta .btn-lg{width:100%}
+  .wa-float{left:12px;right:12px;bottom:12px}
+
+  .problem-body p{text-align:center}
+  .problem-card{padding:18px 18px}
+
+  /* Quién te atiende: el eyebrow se centra igual que el nombre. */
+  .doctor-grid > div:last-child > .eyebrow{display:flex;justify-content:center}
+  .photo-slot img{aspect-ratio:1/1}
+  .photo-caption{text-align:center}
+
+  .card{padding:26px 22px}
+  .mech-photos{max-width:420px}
+
+  .final-cta p{font-size:1.02rem}
+  .site-footer{text-align:center}
+  .site-footer .footer-grid > div:first-child img{margin-inline:auto}
+  .socials{justify-content:center}
+  .footer-legal{text-align:left}
+}
+/* Teléfonos angostos: el eyebrow del hero se compacta para caber en un renglón. */
+@media (max-width:389px){
+  .hero .eyebrow{letter-spacing:.1em;gap:8px}
+  .hero .eyebrow::before{width:18px}
+}
+/* En pantallas muy angostas (320px) sí se permite el segundo renglón. */
+@media (max-width:349px){
+  .hero .btn-lg,.final-cta .btn-lg,.wa-float .btn{white-space:normal}
+}
+
+/* ---------- Tablet ---------- */
+@media (min-width:760px) and (max-width:979px){
+  .hero-grid{gap:48px}
+  .optic{max-width:480px}
+  .mechanism-head{grid-template-columns:1fr}
+  .mechanism-head .section-head{max-width:none;text-align:center}
+  .mechanism-head .eyebrow{display:flex;justify-content:center}
+  .mech-photos{max-width:460px}
+  .cards{grid-template-columns:1fr}
+  .card{display:grid;grid-template-columns:auto 1fr;column-gap:20px;text-align:left;align-items:start}
+  .card .icon-circle{grid-row:span 2;margin:0}
+  .card h3{text-align:left;margin-bottom:6px}
+  .t-grid{grid-template-columns:1fr}
+  .price-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width:980px){
+  .hero-grid{grid-template-columns:1.05fr .95fr;gap:64px}
+  .mechanism-head{grid-template-columns:1fr 1fr}
+
+  /* Tarjetas de "el punto de partida": icono arriba y texto debajo — en cuatro
+     columnas, la disposición en fila apretaba cada título a dos renglones. */
+  .problem-card{flex-direction:column;gap:16px;padding:24px 22px}
+
+  .doctor-grid{grid-template-columns:1fr 1.1fr;gap:64px}
+  .photo-slot{position:sticky;top:120px;max-width:none}
+
+  /* FAQ en dos columnas: el título se queda fijo a la izquierda mientras se
+     leen las preguntas, en vez de dejar media pantalla vacía a la derecha. */
+  .faq .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+  .faq .section-head{position:sticky;top:130px;margin-bottom:0}
+  .faq-list{max-width:none}
+
+  /* El botón flotante vive en la esquina inferior derecha; el pie reserva
+     espacio para que no tape la última línea legal. */
+  .site-footer{padding-bottom:120px}
+}
+@media (min-width:1280px){
+  :root{--maxw:1200px}
+}
+
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
@@ -576,7 +713,7 @@ details .answer p{margin:0}
         </a>
       </div>
 
-      <div class="badge" style="margin-top:26px">
+      <div class="badge hero-badge">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Zm-1.2 15.4-4.2-4.2 1.7-1.7 2.5 2.5 5.7-5.7 1.7 1.7-7.4 7.4Z"/></svg>
         <span>Primera clínica de odontología asistida con microscopio en Tlaxcala–Puebla, desde 2018.</span>
       </div>
@@ -585,7 +722,7 @@ details .answer p{margin:0}
     <div class="optic">
       <img class="optic-photo" src="dr-tapia.webp"
            srcset="dr-tapia-560.webp 560w, dr-tapia.webp 920w"
-           sizes="(min-width:980px) 460px, 92vw"
+           sizes="(min-width:980px) 520px, 100vw"
            alt="El Dr. Arturo Ramírez Tapia en su consultorio, junto al microscopio dental"
            width="920" height="920" decoding="async">
       <div class="optic-label">Dr. Arturo Ramírez Tapia<span><span class="accent-word">Micro-odontología</span> asistida con microscopio</span></div>
@@ -677,13 +814,22 @@ details .answer p{margin:0}
         <div class="mag-stat"><b>30×</b><span>de magnificación óptica</span></div>
         <p class="mechanism-slogan">Con un microscopio, te atendemos con más precisión.</p>
       </div>
-      <figure class="mechanism-photo">
-        <img src="dr-microscopio.webp"
-             srcset="dr-microscopio-480.webp 480w, dr-microscopio.webp 800w"
-             sizes="(min-width:760px) 340px, 78vw"
-             alt="Odontólogo revisando un caso con microscopio de alta precisión"
-             width="800" height="1200" loading="lazy" decoding="async">
-      </figure>
+      <div class="mech-photos">
+        <figure class="mech-photo mech-photo-main">
+          <img src="dr-microscopio.webp"
+               srcset="dr-microscopio-480.webp 480w, dr-microscopio.webp 800w"
+               sizes="(min-width:980px) 400px, 75vw"
+               alt="Odontólogo revisando un caso con microscopio de alta precisión"
+               width="800" height="1200" loading="lazy" decoding="async">
+        </figure>
+        <figure class="mech-photo mech-photo-sub">
+          <img src="dra-microscopio.webp"
+               srcset="dra-microscopio-480.webp 480w, dra-microscopio.webp 800w"
+               sizes="(min-width:980px) 270px, 50vw"
+               alt="Especialista del equipo Swiss Dental trabajando con microscopio de precisión"
+               width="800" height="800" loading="lazy" decoding="async">
+        </figure>
+      </div>
     </div>
 
     <div class="cards">
@@ -719,13 +865,6 @@ details .answer p{margin:0}
       </article>
     </div>
 
-    <figure class="mechanism-photo mechanism-photo-end">
-      <img src="dra-microscopio.webp"
-           srcset="dra-microscopio-480.webp 480w, dra-microscopio.webp 800w"
-           sizes="(min-width:760px) 340px, 78vw"
-           alt="Especialista del equipo Swiss Dental trabajando con microscopio de precisión"
-           width="800" height="800" loading="lazy" decoding="async">
-    </figure>
     <!-- PENDIENTE PRODUCCIÓN: si el doctor confirma que ciertos casos no requieren anestesia
          gracias a la detección temprana, agregar esa línea aquí. No asumir sin confirmación. -->
   </div>
@@ -739,7 +878,7 @@ details .answer p{margin:0}
         <div class="photo-slot">
           <img src="dr-tapia-consultorio.webp"
                srcset="dr-tapia-consultorio-480.webp 480w, dr-tapia-consultorio.webp 800w"
-               sizes="(min-width:980px) 400px, 92vw"
+               sizes="(min-width:980px) 540px, 100vw"
                alt="El Dr. Arturo Ramírez Tapia sonriendo en su consultorio, junto al microscopio dental"
                width="800" height="800" loading="lazy" decoding="async">
           <p class="photo-caption">El Dr. Arturo Ramírez Tapia en su consultorio de San Diego Metepec, junto al microscopio con el que trabaja.</p>
