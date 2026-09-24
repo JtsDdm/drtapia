@@ -119,7 +119,7 @@ Ese reencuadre hace dos cosas a la vez: quita la vergüenza al paciente que llev
 la consulta, y **abre el hueco exacto que el microscopio viene a llenar** — sin desprestigiar a
 nadie, lo cual sería una violación directa de COFEPRIS.
 
-Las cuatro *pills* al cierre ("Miedo al dolor", "Estrés de la cita"…) permiten que quien escanea
+Las cuatro *pills* al cierre ("Miedo al procedimiento", "Estrés de la cita"…) permiten que quien escanea
 en vez de leer se reconozca en un segundo.
 
 ### 04 · Mecanismo — el corazón persuasivo
