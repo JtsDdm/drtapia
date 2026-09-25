@@ -3,7 +3,7 @@
 Landing de una sola oferta. Tráfico 100% pagado desde Meta Ads.
 Conversión = clic al botón de WhatsApp. Sin formularios, sin menú, sin ofertas compitiendo.
 
-👉 **Para publicarla, sigue [PUBLICAR.md](PUBLICAR.md).** Son tres datos y cuatro comprobaciones.
+👉 **Para publicarla, sigue [PUBLICAR.md](PUBLICAR.md).** Son cuatro datos y cuatro comprobaciones.
 👉 **Para entender por qué está hecha así, lee [ESTRUCTURA.md](ESTRUCTURA.md).**
 
 ## Archivos
@@ -26,7 +26,7 @@ Sin build, sin dependencias, sin peticiones externas. Se sube tal cual a cualqui
 
 ## Configuración — un solo bloque
 
-Los tres datos variables (`whatsapp`, `pixelId`, `cedula`) viven en el objeto
+Los cuatro datos variables (`whatsapp`, `pixelId`, `cedula`, `clarityId`) viven en el objeto
 `window.SWISS_CONFIG`, al final de `index.html`. Todo lo demás los lee de ahí.
 
 Valores actuales:
@@ -34,6 +34,7 @@ Valores actuales:
 - `whatsapp`: `522462410157`
 - `pixelId`: `1434057772157943` — pixel de Meta en uso para las campañas de micro-odontología
 - `cedula`: `3637698 · 6075426` — las dos cédulas del doctor; el pie las muestra como "Cédulas profesionales"
+- `clarityId`: `ynysww2ac2` — ID de Microsoft Clarity, para grabaciones de sesión y mapas de calor
 
 La página **falla a la vista, no en silencio**: sin número de WhatsApp muestra una franja
 roja de "SIN PUBLICAR" y desactiva los botones, en vez de dejar seis CTAs que parecen
@@ -120,6 +121,8 @@ abren en pestaña nueva (`target="_blank"`), así la petición del pixel alcanza
 (`header`, `floating`, `section`, `footer`) para saber qué CTA convierte mejor.
 
 El pixel no se carga si `pixelId` está vacío, para no lanzar una petición inválida a Meta.
+Clarity sigue el mismo criterio con `clarityId`. Los dos se cargan de forma asíncrona y
+por separado, así que ninguno bloquea el render ni depende del otro.
 No hay etiqueta `<noscript>` del pixel: solo admitía el ID escrito a mano — rompiendo la
 promesa de "un único lugar que editar" — y sin JavaScript tampoco se registra el `Lead`.
 

@@ -1,24 +1,25 @@
 # Antes de publicar — checklist
 
-Lista pensada para alguien que **no programa**. Son tres datos que hay que escribir
+Lista pensada para alguien que **no programa**. Son cuatro datos que hay que escribir
 y un par de comprobaciones. Nada más.
 
-> **Estado actual:** los tres datos ya están puestos (WhatsApp, pixel `1434057772157943`
-> y las cédulas `3637698 · 6075426`) y la dirección ya es `https://micro.drarturotapia.com/`.
-> Los pasos 1 y 3 solo hacen falta si alguno de esos datos cambia.
+> **Estado actual:** los cuatro datos ya están puestos (WhatsApp, pixel `1434057772157943`,
+> cédulas `3637698 · 6075426` y Clarity `ynysww2ac2`) y la dirección ya es
+> `https://micro.drarturotapia.com/`. Los pasos 1 y 3 solo hacen falta si algo cambia.
 
 ---
 
-## Paso 1 · Rellenar los tres datos
+## Paso 1 · Rellenar los cuatro datos
 
 Abre `index.html` con cualquier editor de texto y busca esta parte
 (está casi al final del archivo, busca la palabra **CONFIGURACIÓN**):
 
 ```js
 window.SWISS_CONFIG = {
-  whatsapp: '',
-  pixelId:  '',
-  cedula:   '',
+  whatsapp:  '',
+  pixelId:   '',
+  cedula:    '',
+  clarityId: '',
   ...
 };
 ```
@@ -30,9 +31,11 @@ Escribe cada valor **entre las comillas**:
 | `whatsapp` | El número que va a recibir los mensajes, en formato internacional, **sin `+`, sin espacios y sin guiones** | `'522462410157'` |
 | `pixelId` | El ID del pixel de Meta, solo los números | `'123456789012345'` |
 | `cedula` | La cédula profesional del Dr. Arturo Ramírez Tapia | `'1234567'` |
+| `clarityId` | El ID de proyecto de Microsoft Clarity, que sale en su panel | `'abc123xyz'` |
 
 Ese bloque es **el único lugar del archivo que hay que tocar**. Los 6 botones de
-WhatsApp, la medición de Meta y la línea legal del pie toman los datos de ahí.
+WhatsApp, la medición de Meta, las grabaciones de Clarity y la línea legal del pie
+toman los datos de ahí.
 
 ### Qué pasa si te falta un dato
 
@@ -44,6 +47,8 @@ La página está hecha para no publicarse rota en silencio:
   no sabrás qué anuncio trae pacientes.
 - **Sin `cedula`** → la línea de la cédula simplemente no se muestra
   (antes se imprimía el texto `{{CEDULA_PROFESIONAL}}` a la vista del paciente).
+- **Sin `clarityId`** → no se carga Clarity. La página funciona igual, pero no se
+  graban las sesiones ni los mapas de calor.
 
 ---
 

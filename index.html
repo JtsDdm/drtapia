@@ -1186,6 +1186,9 @@ window.SWISS_CONFIG = {
   /* 3) Cédulas profesionales del Dr. Arturo Ramírez Tapia. Ej: '1234567' */
   cedula: '3637698 · 6075426',
 
+  /* 4) ID de proyecto de Microsoft Clarity — el código corto del panel. Ej: 'abc123xyz' */
+  clarityId: 'ynysww2ac2',
+
   /* Mensaje con el que se abre el chat de WhatsApp */
   mensaje: 'Hola, quiero agendar una valoración para remoción de caries con micro-odontología'
 };
@@ -1208,6 +1211,20 @@ window.SWISS_CONFIG = {
 /* Nota: se eliminó la etiqueta <noscript> del pixel. Solo aceptaba el ID escrito a mano,
    lo que rompía la promesa de "un único lugar que editar", y sin JavaScript tampoco se
    puede registrar el evento Lead, que es la métrica que de verdad importa aquí. */
+</script>
+
+<!-- ============ MICROSOFT CLARITY ============ -->
+<script>
+(function(){
+  var id = (window.SWISS_CONFIG && window.SWISS_CONFIG.clarityId || '').trim();
+  /* Mismo criterio que el pixel: sin ID no se carga nada, para no pedir un script roto. */
+  if (!id) { console.warn('[Swiss Dental] Clarity sin configurar: no se están grabando sesiones.'); return; }
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, 'clarity', 'script', id);
+})();
 </script>
 
 <!-- ============ LÓGICA ============ -->
