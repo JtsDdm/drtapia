@@ -171,7 +171,7 @@ que más gente hace abandonar en silencio. Ocultarlo no la elimina, solo mueve l
 —donde ya cuesta dinero atenderla— y filtra al revés: espanta a quien sí podía pagar.
 
 Los $900 se presentan como **tarjeta destacada con etiqueta "Empieza aquí"**, y el desglose
-(microscopio + cámara intraoral + radiografías) convierte un precio en un paquete. Es el mismo
+(microscopio + radiografías) convierte un precio en un paquete. Es el mismo
 precio, percibido como más.
 
 El financiamiento a meses sin intereses va inmediatamente después, con su propio CTA: es el

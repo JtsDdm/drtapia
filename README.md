@@ -101,7 +101,8 @@ Del logo (`logo1.svg` / `Logo2.svg`):
 
 Fuera del logo, y a propósito:
 
-- Magenta `#E31B6D` — **exclusivamente los botones de WhatsApp**
+- Magenta `#E31B6D` — **exclusivamente los botones de WhatsApp** dentro de la página
+- Verde WhatsApp `#1DAA61` — solo el botón flotante que acompaña el scroll (el `#25D366` clásico con texto blanco da 2:1 de contraste; este es el verde de los botones de la app actual)
 
 ### Por qué el magenta no está en el logo y aun así se queda
 

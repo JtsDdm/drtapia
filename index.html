@@ -455,6 +455,16 @@ details .answer p{margin:0}
   animation:rise .5s var(--ease) .8s both;
 }
 .wa-float .btn{width:100%;max-width:520px;box-shadow:0 16px 40px -10px rgba(227,27,109,.7)}
+/* El botón flotante (el que acompaña todo el scroll) va en el verde de WhatsApp:
+   se reconoce al instante como "abrir chat". Los CTA dentro de la página siguen en
+   magenta. #1DAA61 es el verde de los botones de la app actual de WhatsApp; el
+   #25D366 clásico con texto blanco apenas da 2:1 de contraste y no se lee bien. */
+.wa-float .btn-wa{
+  background:#1DAA61;
+  box-shadow:0 16px 40px -10px rgba(29,170,97,.75);
+  text-shadow:0 1px 1px rgba(0,60,30,.35);
+}
+.wa-float .btn-wa:hover{background:#178F51;box-shadow:0 20px 42px -14px rgba(29,170,97,.85)}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
 /* ---------- Reveal ---------- */
@@ -794,7 +804,7 @@ details .answer{font-size:1.02rem}
           <span class="promo-label">Primera visita de valoración</span>
           <span class="promo-old"><span class="sr-only">Antes </span><s>$1,100</s></span>
           <span class="promo-now">$900 <small>MXN</small></span>
-          <span class="promo-incl">Incluye microscopio, cámara intraoral y radiografías digitales</span>
+          <span class="promo-incl">Incluye microscopio y radiografías digitales</span>
         </div>
         <div class="countdown" data-countdown hidden>
           <span class="countdown-title">La promoción termina en</span>
@@ -1043,7 +1053,6 @@ details .answer{font-size:1.02rem}
         <p class="amount-vigencia" data-promo-vigencia>Precio de campaña hasta el 24 de octubre de 2026.</p>
         <ul>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Evaluación con microscopio dental</span></li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Cámara intraoral</span></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Radiografías digitales</span></li>
         </ul>
         <div class="countdown countdown-light" data-countdown hidden>
@@ -1167,7 +1176,7 @@ details .answer{font-size:1.02rem}
 
       <details>
         <summary>¿Cuánto cuesta la primera valoración?</summary>
-        <div class="answer"><p>$900 MXN (antes $1,100), e incluye evaluación con microscopio, cámara intraoral y radiografías digitales.</p></div>
+        <div class="answer"><p>$900 MXN (antes $1,100), e incluye evaluación con microscopio y radiografías digitales.</p></div>
       </details>
     </div>
   </div>
@@ -1281,7 +1290,7 @@ details .answer{font-size:1.02rem}
     {"@type":"Question","name":"¿En qué se diferencia de una revisión dental normal?","acceptedAnswer":{"@type":"Answer","text":"Una revisión normal depende de la vista directa del dentista; con microscopio se detectan lesiones y detalles en etapas mucho más tempranas."}},
     {"@type":"Question","name":"¿Es necesaria la anestesia?","acceptedAnswer":{"@type":"Answer","text":"Depende del caso — se determina en tu valoración inicial con el doctor."}},
     {"@type":"Question","name":"¿Cuánto dura la consulta de valoración?","acceptedAnswer":{"@type":"Answer","text":"La duración se confirma al agendar, según el motivo de tu consulta. Escríbenos por WhatsApp y te damos el detalle."}},
-    {"@type":"Question","name":"¿Cuánto cuesta la primera valoración?","acceptedAnswer":{"@type":"Answer","text":"$900 MXN (antes $1,100), e incluye evaluación con microscopio, cámara intraoral y radiografías digitales."}}
+    {"@type":"Question","name":"¿Cuánto cuesta la primera valoración?","acceptedAnswer":{"@type":"Answer","text":"$900 MXN (antes $1,100), e incluye evaluación con microscopio y radiografías digitales."}}
   ]
 }
 </script>
