@@ -723,8 +723,10 @@ details .answer{font-size:1.02rem}
 .final-meta s{opacity:.75;text-decoration-color:#FF6FB4}
 .final-meta strong{color:#fff}
 
-/* El CTA queda pegado al precio: primero ves cuánto cuesta, luego el botón. */
-.promo + .hero-actions{margin-top:22px}
+/* Orden del hero: titular → precio con contador → párrafo → CTA.
+   El párrafo queda entre la tarjeta y el botón, con aire parejo arriba y abajo. */
+.promo + .lead{margin-top:26px}
+.promo ~ .hero-actions{margin-top:26px}
 
 @media (max-width:759px){
   .promo{margin-inline:auto;padding:22px 18px;text-align:center}
@@ -784,7 +786,6 @@ details .answer{font-size:1.02rem}
     <div>
       <span class="eyebrow"><span class="accent-word">Micro-odontología</span> · Tlaxcala</span>
       <h1><span class="accent">Micro-odontología</span>: precisión que protege tu sonrisa.</h1>
-      <p class="lead">Un detalle que no se detecta puede convertirse en un nuevo problema. Con <span class="accent-word">micro-odontología</span> observamos con mayor claridad y tratamos con precisión, reduciendo riesgos y protegiendo mejor tu sonrisa.</p>
 
       <!-- Precio de campaña. El contador cuenta hacia promoFin (bloque CONFIGURACIÓN);
            al llegar a cero se oculta junto con la línea de vigencia y el precio se queda. -->
@@ -806,6 +807,9 @@ details .answer{font-size:1.02rem}
         </div>
         <p class="promo-vigencia" data-promo-vigencia>Precio de campaña válido hasta el 24 de octubre de 2026.</p>
       </div>
+
+
+      <p class="lead">Un detalle que no se detecta puede convertirse en un nuevo problema. Con <span class="accent-word">micro-odontología</span> observamos con mayor claridad y tratamos con precisión, reduciendo riesgos y protegiendo mejor tu sonrisa.</p>
 
       <div class="hero-actions">
         <a class="btn btn-wa btn-lg" data-wa href="#" target="_blank" rel="noopener">
