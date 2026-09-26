@@ -670,6 +670,86 @@ details .answer{font-size:1.02rem}
   :root{--maxw:1200px}
 }
 
+/* ============================================================
+   PRECIO DE CAMPAÑA Y CONTADOR
+   El precio es texto rosa/blanco como el "30×" — no relleno magenta, que sigue
+   siendo exclusivo de los botones de WhatsApp.
+   ============================================================ */
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.promo{
+  margin-top:28px;padding:22px 24px;border-radius:20px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  box-shadow:0 0 40px 4px rgba(227,27,109,.32);
+  display:grid;gap:18px;max-width:560px;
+}
+.promo-price{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
+.promo-label{font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:12px}
+.promo-old{font-size:1.2rem;font-weight:700;color:rgba(255,255,255,.62)}
+.promo-old s{text-decoration-color:#FF6FB4;text-decoration-thickness:2px}
+.promo-now{
+  font-size:clamp(3.4rem,11vw,4.6rem);font-weight:800;letter-spacing:-.045em;line-height:1;margin-top:4px;
+  background:linear-gradient(180deg,#fff 20%,#FF9AC6 100%);-webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+}
+.promo-now small{font-size:.3em;letter-spacing:0;font-weight:800}
+.promo-incl{font-size:.88rem;color:rgba(255,255,255,.74);margin-top:12px;line-height:1.45}
+.promo-vigencia{margin:0;font-size:.8rem;color:rgba(255,255,255,.62);grid-column:1 / -1}
+
+.countdown{display:flex;flex-direction:column;gap:10px}
+.countdown-title{font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#FF9AC6}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.countdown-grid div{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:10px 4px 9px;border-radius:12px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+}
+.countdown-grid b{font-size:1.55rem;font-weight:800;line-height:1;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.countdown-grid span{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.66)}
+
+/* Versión clara, dentro de la tarjeta de precio */
+.amount-old{margin-top:14px;font-size:1.05rem;font-weight:700;color:var(--muted)}
+.amount-old s{text-decoration-color:var(--pink);text-decoration-thickness:2px}
+.amount.amount-promo{margin-top:4px;font-size:clamp(2.8rem,6vw,3.6rem)}
+.amount-vigencia{margin:8px 0 0;font-size:.84rem;font-weight:600;color:var(--blue)}
+.countdown-light{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.countdown-light .countdown-title{color:var(--blue)}
+.countdown-light .countdown-grid div{background:var(--blue-soft);border-color:rgba(16,60,225,.14)}
+.countdown-light .countdown-grid b{color:var(--ink)}
+.countdown-light .countdown-grid span{color:var(--muted)}
+
+.final-meta s{opacity:.75;text-decoration-color:#FF6FB4}
+.final-meta strong{color:#fff}
+
+/* El CTA queda pegado al precio: primero ves cuánto cuesta, luego el botón. */
+.promo + .hero-actions{margin-top:22px}
+
+@media (max-width:759px){
+  .promo{margin-inline:auto;padding:22px 18px;text-align:center}
+  .promo-price{align-items:center}
+  .promo .countdown-title{text-align:center}
+}
+/* El contador va debajo del precio, a todo el ancho de la tarjeta: al lado del
+   precio quedaba en una columna angosta y el título se partía en dos renglones. */
+.promo .countdown{padding-top:16px;border-top:1px solid rgba(255,255,255,.16)}
+@media (min-width:560px){
+  .countdown-grid{gap:10px}
+  .countdown-grid div{padding:12px 6px 10px}
+  .countdown-grid b{font-size:1.9rem}
+}
+@media (min-width:560px) and (max-width:759px){
+  .promo{text-align:left}
+  .promo-price{align-items:flex-start}
+  .promo .countdown-title{text-align:left}
+}
+@media (max-width:359px){
+  .countdown-grid{gap:6px}
+  .countdown-grid b{font-size:1.3rem}
+  .countdown-grid span{font-size:.58rem;letter-spacing:.06em}
+}
+
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
@@ -705,6 +785,27 @@ details .answer{font-size:1.02rem}
       <span class="eyebrow"><span class="accent-word">Micro-odontología</span> · Tlaxcala</span>
       <h1><span class="accent">Micro-odontología</span>: precisión que protege tu sonrisa.</h1>
       <p class="lead">Un detalle que no se detecta puede convertirse en un nuevo problema. Con <span class="accent-word">micro-odontología</span> observamos con mayor claridad y tratamos con precisión, reduciendo riesgos y protegiendo mejor tu sonrisa.</p>
+
+      <!-- Precio de campaña. El contador cuenta hacia promoFin (bloque CONFIGURACIÓN);
+           al llegar a cero se oculta junto con la línea de vigencia y el precio se queda. -->
+      <div class="promo">
+        <div class="promo-price">
+          <span class="promo-label">Primera visita de valoración</span>
+          <span class="promo-old"><span class="sr-only">Antes </span><s>$1,100</s></span>
+          <span class="promo-now">$900 <small>MXN</small></span>
+          <span class="promo-incl">Incluye microscopio, cámara intraoral y radiografías digitales</span>
+        </div>
+        <div class="countdown" data-countdown hidden>
+          <span class="countdown-title">La promoción termina en</span>
+          <div class="countdown-grid" role="timer" aria-label="Tiempo restante de la promoción">
+            <div><b data-cd="d">00</b><span>días</span></div>
+            <div><b data-cd="h">00</b><span>horas</span></div>
+            <div><b data-cd="m">00</b><span>min</span></div>
+            <div><b data-cd="s">00</b><span>seg</span></div>
+          </div>
+        </div>
+        <p class="promo-vigencia" data-promo-vigencia>Precio de campaña válido hasta el 24 de octubre de 2026.</p>
+      </div>
 
       <div class="hero-actions">
         <a class="btn btn-wa btn-lg" data-wa href="#" target="_blank" rel="noopener">
@@ -933,12 +1034,23 @@ details .answer{font-size:1.02rem}
       <div class="price-card featured">
         <span class="price-tag">Empieza aquí</span>
         <h3>Primera visita</h3>
-        <div class="amount">$900 <small>MXN</small></div>
+        <div class="amount-old"><span class="sr-only">Antes </span><s>$1,100 MXN</s></div>
+        <div class="amount amount-promo">$900 <small>MXN</small></div>
+        <p class="amount-vigencia" data-promo-vigencia>Precio de campaña hasta el 24 de octubre de 2026.</p>
         <ul>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Evaluación con microscopio dental</span></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Cámara intraoral</span></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Radiografías digitales</span></li>
         </ul>
+        <div class="countdown countdown-light" data-countdown hidden>
+          <span class="countdown-title">Termina en</span>
+          <div class="countdown-grid" role="timer" aria-label="Tiempo restante de la promoción">
+            <div><b data-cd="d">00</b><span>días</span></div>
+            <div><b data-cd="h">00</b><span>horas</span></div>
+            <div><b data-cd="m">00</b><span>min</span></div>
+            <div><b data-cd="s">00</b><span>seg</span></div>
+          </div>
+        </div>
       </div>
 
       <div class="price-card">
@@ -1051,7 +1163,7 @@ details .answer{font-size:1.02rem}
 
       <details>
         <summary>¿Cuánto cuesta la primera valoración?</summary>
-        <div class="answer"><p>$900 MXN, e incluye evaluación con microscopio, cámara intraoral y radiografías digitales.</p></div>
+        <div class="answer"><p>$900 MXN (antes $1,100), e incluye evaluación con microscopio, cámara intraoral y radiografías digitales.</p></div>
       </details>
     </div>
   </div>
@@ -1067,7 +1179,7 @@ details .answer{font-size:1.02rem}
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.71.97.99-3.62-.23-.37a9.78 9.78 0 0 1-1.5-5.22c0-5.4 4.4-9.8 9.82-9.8 2.62 0 5.08 1.03 6.93 2.88a9.74 9.74 0 0 1 2.87 6.93c0 5.4-4.4 9.81-9.81 9.81M20.52 3.45A11.7 11.7 0 0 0 12.05 0C5.6 0 .35 5.25.35 11.7c0 2.06.54 4.07 1.56 5.85L.25 24l6.6-1.73a11.67 11.67 0 0 0 5.2 1.24h.01c6.45 0 11.7-5.25 11.7-11.7 0-3.13-1.22-6.07-3.43-8.28"/></svg>
       Agenda tu valoración por WhatsApp
     </a>
-    <p class="final-meta">Primera visita $900 MXN · Meses sin intereses disponibles</p>
+    <p class="final-meta">Primera visita <s>$1,100</s> <strong>$900 MXN</strong> · Meses sin intereses disponibles</p>
   </div>
 </section>
 
@@ -1165,7 +1277,7 @@ details .answer{font-size:1.02rem}
     {"@type":"Question","name":"¿En qué se diferencia de una revisión dental normal?","acceptedAnswer":{"@type":"Answer","text":"Una revisión normal depende de la vista directa del dentista; con microscopio se detectan lesiones y detalles en etapas mucho más tempranas."}},
     {"@type":"Question","name":"¿Es necesaria la anestesia?","acceptedAnswer":{"@type":"Answer","text":"Depende del caso — se determina en tu valoración inicial con el doctor."}},
     {"@type":"Question","name":"¿Cuánto dura la consulta de valoración?","acceptedAnswer":{"@type":"Answer","text":"La duración se confirma al agendar, según el motivo de tu consulta. Escríbenos por WhatsApp y te damos el detalle."}},
-    {"@type":"Question","name":"¿Cuánto cuesta la primera valoración?","acceptedAnswer":{"@type":"Answer","text":"$900 MXN, e incluye evaluación con microscopio, cámara intraoral y radiografías digitales."}}
+    {"@type":"Question","name":"¿Cuánto cuesta la primera valoración?","acceptedAnswer":{"@type":"Answer","text":"$900 MXN (antes $1,100), e incluye evaluación con microscopio, cámara intraoral y radiografías digitales."}}
   ]
 }
 </script>
@@ -1192,6 +1304,10 @@ window.SWISS_CONFIG = {
   /* Dominio donde SÍ se mide. En cualquier otra dirección (links de prueba de Vercel,
      vista local) el pixel y Clarity no se cargan, para no mezclar pruebas con la campaña. */
   dominioProduccion: 'micro.drarturotapia.com',
+
+  /* Fin del precio de campaña ($900, antes $1,100). Hora de Tlaxcala (-06:00).
+     El contador de la página cuenta hacia esta fecha y desaparece al llegar a cero. */
+  promoFin: '2026-10-24T23:59:59-06:00',
 
   /* Mensaje con el que se abre el chat de WhatsApp */
   mensaje: 'Hola, quiero agendar una valoración para remoción de caries con micro-odontología'
@@ -1297,6 +1413,34 @@ window.SWISS_CONFIG = {
     aviso.textContent = 'SIN PUBLICAR: falta configurar el número de WhatsApp en el bloque CONFIGURACIÓN de index.html.';
     document.body.appendChild(aviso);
   }
+
+  /* ---- Contador de la promoción ----
+     Cuenta hacia una fecha real (promoFin). Nunca se reinicia por visita: un contador
+     falso sería publicidad engañosa. Sin JavaScript no se muestra (queda la vigencia). */
+  var fin = Date.parse(CFG.promoFin || '');
+  var relojes = document.querySelectorAll('[data-countdown]');
+  var vigencias = document.querySelectorAll('[data-promo-vigencia]');
+  var dos = function(n){ return (n < 10 ? '0' : '') + n; };
+  var terminarPromo = function(){
+    Array.prototype.forEach.call(relojes, function(r){ r.hidden = true; });
+    Array.prototype.forEach.call(vigencias, function(v){ v.hidden = true; });
+  };
+  var tic = function(){
+    var restante = Math.floor((fin - Date.now()) / 1000);
+    if (!(restante > 0)) { terminarPromo(); clearInterval(timer); return; }
+    var partes = {
+      d: Math.floor(restante / 86400),
+      h: Math.floor(restante % 86400 / 3600),
+      m: Math.floor(restante % 3600 / 60),
+      s: restante % 60
+    };
+    Array.prototype.forEach.call(relojes, function(r){
+      Object.keys(partes).forEach(function(k){ r.querySelector('[data-cd="' + k + '"]').textContent = dos(partes[k]); });
+      r.hidden = false;
+    });
+  };
+  var timer = null;
+  if (isNaN(fin)) { terminarPromo(); } else { tic(); timer = setInterval(tic, 1000); }
 
   /* ---- Año dinámico ---- */
   var y = document.getElementById('year');

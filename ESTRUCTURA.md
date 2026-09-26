@@ -159,6 +159,13 @@ y el que mejor aprovecha el espacio en la retícula de dos columnas.
 
 ### 06 · Precio — la objeción que nadie escribe en WhatsApp
 
+> **Campaña septiembre–octubre 2026:** Clarity mostró que el visitante promedio solo ve el
+> 30% de la página, así que casi nadie llegaba a esta sección. El precio de campaña ($900,
+> antes $1,100, confirmado por el doctor) sube también al hero, con un contador hacia la fecha
+> real de fin de la campaña (24 de octubre). Un contador que se reinicia por visita sería
+> publicidad engañosa (PROFECO exige vigencia real en las promociones), por eso la fecha vive
+> en `promoFin` y la línea de vigencia se muestra siempre junto al precio.
+
 **Por qué el precio está en la página y no "se dice por mensaje":** el costo es la duda #1 y la
 que más gente hace abandonar en silencio. Ocultarlo no la elimina, solo mueve la fricción al chat
 —donde ya cuesta dinero atenderla— y filtra al revés: espanta a quien sí podía pagar.
@@ -284,7 +291,7 @@ siendo la mejora pendiente de mayor impacto.
 |---|---|
 | Menú de navegación | Puertas de salida en una página de una sola acción. |
 | Formulario de contacto | Compite con WhatsApp y convierte peor en este canal. Dos vías de conversión dividen la decisión. |
-| Pop-up de salida / cuenta regresiva | Táctica agresiva incompatible con el tono premium y con el criterio de publicidad en salud. |
+| Pop-up de salida / cuenta regresiva falsa | Táctica agresiva incompatible con el tono premium y con el criterio de publicidad en salud. El contador que sí hay (ver sección 06) cuenta hacia la fecha real de fin de la campaña y nunca se reinicia por visita. |
 | Fotos de antes/después | Prohibido por COFEPRIS. |
 | Otros servicios de la clínica | Una landing, una oferta. Ortodoncia, blanqueamiento, etc. merecen sus propias landings con sus propios anuncios. |
 | Chatbot / widget de terceros | Peso extra, riesgo de privacidad y compite con el CTA principal. |

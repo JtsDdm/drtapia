@@ -35,6 +35,12 @@ Valores actuales:
 - `pixelId`: `1434057772157943` — pixel de Meta en uso para las campañas de micro-odontología
 - `cedula`: `3637698 · 6075426` — las dos cédulas del doctor; el pie las muestra como "Cédulas profesionales"
 - `clarityId`: `ynysww2ac2` — ID de Microsoft Clarity, para grabaciones de sesión y mapas de calor
+- `dominioProduccion`: `micro.drarturotapia.com` — el pixel y Clarity **solo** se cargan en esta
+  dirección. En los links de prueba de Vercel y en la vista local no se mide nada, para que
+  las pruebas no se mezclen con los datos de la campaña.
+- `promoFin`: `2026-10-24T23:59:59-06:00` — fin del precio de campaña ($900, antes $1,100).
+  El contador de la página cuenta hacia esta fecha; al llegar a cero se ocultan el contador
+  y la línea de vigencia, y el precio de $900 con el $1,100 tachado se queda.
 
 La página **falla a la vista, no en silencio**: sin número de WhatsApp muestra una franja
 roja de "SIN PUBLICAR" y desactiva los botones, en vez de dejar seis CTAs que parecen
