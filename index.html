@@ -1189,6 +1189,10 @@ window.SWISS_CONFIG = {
   /* 4) ID de proyecto de Microsoft Clarity — el código corto del panel. Ej: 'abc123xyz' */
   clarityId: 'ynysww2ac2',
 
+  /* Dominio donde SÍ se mide. En cualquier otra dirección (links de prueba de Vercel,
+     vista local) el pixel y Clarity no se cargan, para no mezclar pruebas con la campaña. */
+  dominioProduccion: 'micro.drarturotapia.com',
+
   /* Mensaje con el que se abre el chat de WhatsApp */
   mensaje: 'Hola, quiero agendar una valoración para remoción de caries con micro-odontología'
 };
@@ -1197,6 +1201,11 @@ window.SWISS_CONFIG = {
 <!-- ============ META PIXEL ============ -->
 <script>
 (function(){
+  var CFG0 = window.SWISS_CONFIG || {};
+  if (CFG0.dominioProduccion && location.hostname !== CFG0.dominioProduccion) {
+    console.info('[Swiss Dental] Dirección de prueba (' + location.hostname + '): %s no se carga.', 'el pixel de Meta');
+    return;
+  }
   var id = (window.SWISS_CONFIG && window.SWISS_CONFIG.pixelId || '').trim();
   /* Sin ID configurado no se carga nada: evita una petición rota a Meta y ruido en consola. */
   if (!id) { console.warn('[Swiss Dental] Pixel de Meta sin configurar: no se está midiendo nada.'); return; }
@@ -1216,6 +1225,11 @@ window.SWISS_CONFIG = {
 <!-- ============ MICROSOFT CLARITY ============ -->
 <script>
 (function(){
+  var CFG0 = window.SWISS_CONFIG || {};
+  if (CFG0.dominioProduccion && location.hostname !== CFG0.dominioProduccion) {
+    console.info('[Swiss Dental] Dirección de prueba (' + location.hostname + '): %s no se carga.', 'Clarity');
+    return;
+  }
   var id = (window.SWISS_CONFIG && window.SWISS_CONFIG.clarityId || '').trim();
   /* Mismo criterio que el pixel: sin ID no se carga nada, para no pedir un script roto. */
   if (!id) { console.warn('[Swiss Dental] Clarity sin configurar: no se están grabando sesiones.'); return; }
