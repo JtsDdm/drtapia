@@ -1380,6 +1380,21 @@ window.SWISS_CONFIG = {
   var mensaje = CFG.mensaje || 'Hola, quiero información';
   var links = document.querySelectorAll('[data-wa]');
 
+  /* ---- Código de rastreo por anuncio (2026-10-18) ----
+     Cada anuncio de Meta trae en el enlace ?ad={{ad.id}}. Se agrega al mensaje de WhatsApp como
+     "(ref 123456)" (últimos 6 dígitos) para que el dashboard de Adlek sepa qué anuncio trajo cada
+     conversación, cita y venta. Se recuerda durante la visita por si la persona recarga. */
+  var ad = '';
+  try { ad = new URLSearchParams(window.location.search).get('ad') || ''; } catch (e) { ad = ''; }
+  try {
+    if (!ad) ad = window.sessionStorage.getItem('swiss_ad') || '';
+  } catch (e) { /* sin sessionStorage (modo privado): vale solo el del enlace */ }
+  ad = String(ad).replace(/[^0-9]/g, '');
+  if (ad.length >= 6) {
+    try { window.sessionStorage.setItem('swiss_ad', ad); } catch (e) { /* idem */ }
+    mensaje = mensaje + ' (ref ' + ad.slice(-6) + ')';
+  }
+
   /* ---- Cédula profesional: se muestra solo si está configurada ---- */
   var cedula = String(CFG.cedula || '').trim();
   var pCedula = document.getElementById('cedula');
