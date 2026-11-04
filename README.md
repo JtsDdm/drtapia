@@ -38,9 +38,10 @@ Valores actuales:
 - `dominioProduccion`: `micro.drarturotapia.com` — el pixel y Clarity **solo** se cargan en esta
   dirección. En los links de prueba de Vercel y en la vista local no se mide nada, para que
   las pruebas no se mezclen con los datos de la campaña.
-- `promoFin`: `2026-10-24T23:59:59-06:00` — fin del precio de campaña ($900, antes $1,100).
-  El contador de la página cuenta hacia esta fecha; al llegar a cero se ocultan el contador
-  y la línea de vigencia, y el precio de $900 con el $1,100 tachado se queda.
+- `promoFin`: `2026-11-30T23:59:59-06:00` — fin del precio de noviembre de la resina ($1,250,
+  antes $1,900; la valoración cuesta $1,100). El contador de la página cuenta hacia esta fecha;
+  al llegar a cero se ocultan el contador y la línea de vigencia, y el precio de $1,250 con el
+  $1,900 tachado se queda: hay que cambiarlo a mano al terminar el mes.
 
 La página **falla a la vista, no en silencio**: sin número de WhatsApp muestra una franja
 roja de "SIN PUBLICAR" y desactiva los botones, en vez de dejar seis CTAs que parecen
