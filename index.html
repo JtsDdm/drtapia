@@ -749,6 +749,30 @@ details .answer{font-size:1.02rem}
 .countdown-grid b{font-size:1.55rem;font-weight:800;line-height:1;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .countdown-grid span{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.66)}
 
+/* Iluminación del reloj (2026-11-11): borde rosa que respira, números con brillo y un destello
+   que cruza cada casilla. Los segundos laten más fuerte. Con "reducir movimiento" queda fijo. */
+.countdown-grid div{position:relative;overflow:hidden;border-color:rgba(255,111,180,.55);
+  box-shadow:0 0 14px 1px rgba(255,111,180,.35),inset 0 0 12px rgba(255,111,180,.18);
+  animation:cd-glow 2.4s ease-in-out infinite}
+.countdown-grid div::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);
+  transform:translateX(-120%);animation:cd-shine 3.2s ease-in-out infinite}
+.countdown-grid div:nth-child(2)::after{animation-delay:.15s}
+.countdown-grid div:nth-child(3)::after{animation-delay:.3s}
+.countdown-grid div:nth-child(4)::after{animation-delay:.45s}
+.countdown-grid b{text-shadow:0 0 10px rgba(255,154,198,.85),0 0 22px rgba(255,111,180,.5)}
+.countdown-grid div:last-child{animation:cd-beat 1s ease-in-out infinite}
+.countdown-title{text-shadow:0 0 12px rgba(255,111,180,.6)}
+@keyframes cd-glow{
+  0%,100%{box-shadow:0 0 10px 0 rgba(255,111,180,.3),inset 0 0 10px rgba(255,111,180,.14)}
+  50%{box-shadow:0 0 22px 3px rgba(255,111,180,.6),inset 0 0 16px rgba(255,111,180,.28)}
+}
+@keyframes cd-beat{
+  0%,100%{box-shadow:0 0 12px 1px rgba(255,111,180,.4),inset 0 0 12px rgba(255,111,180,.2)}
+  50%{box-shadow:0 0 28px 5px rgba(255,111,180,.75),inset 0 0 18px rgba(255,111,180,.35)}
+}
+@keyframes cd-shine{0%{transform:translateX(-120%)}55%,100%{transform:translateX(120%)}}
+
 /* Versión clara, dentro de la tarjeta de precio */
 .amount-old{margin-top:14px;font-size:1.05rem;font-weight:700;color:var(--muted)}
 .amount-old s{text-decoration-color:var(--pink);text-decoration-thickness:2px}
@@ -759,6 +783,9 @@ details .answer{font-size:1.02rem}
 .countdown-light .countdown-grid div{background:var(--blue-soft);border-color:rgba(16,60,225,.14)}
 .countdown-light .countdown-grid b{color:var(--ink)}
 .countdown-light .countdown-grid span{color:var(--muted)}
+.countdown-light .countdown-grid div{border-color:rgba(227,27,109,.4)}
+.countdown-light .countdown-grid b{color:var(--pink-deep);text-shadow:0 0 12px rgba(227,27,109,.35)}
+.countdown-light .countdown-grid div::after{background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.8) 50%,transparent 70%)}
 
 .final-meta s{opacity:.75;text-decoration-color:#FF6FB4}
 .final-meta strong{color:#fff}
@@ -810,6 +837,7 @@ details .answer{font-size:1.02rem}
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
+  .countdown-grid div::after{display:none}
 }
 </style>
 </head>
