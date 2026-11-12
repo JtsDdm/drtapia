@@ -730,6 +730,11 @@ details .answer{font-size:1.02rem}
 .price-rows s{color:var(--muted);text-decoration-color:var(--pink);text-decoration-thickness:2px;margin-right:6px}
 .price-rows .promo-off{background:var(--pink);color:#fff}
 .amount-total{margin:14px 0 0;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.promo-base{font-size:clamp(2.2rem,8vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff}
+.promo-base small{font-size:.38em;letter-spacing:0;font-weight:800;color:rgba(255,255,255,.74)}
+.promo-sep{display:block;width:100%;height:1px;margin:18px 0;background:rgba(255,255,255,.18)}
+.promo-incl s{text-decoration-color:#FF6FB4;text-decoration-thickness:2px}
+.promo-incl b{color:#fff}
 .promo-incl{font-size:.88rem;color:rgba(255,255,255,.74);margin-top:12px;line-height:1.45}
 .promo-vigencia{margin:0;font-size:.8rem;color:rgba(255,255,255,.62);grid-column:1 / -1}
 
@@ -855,14 +860,13 @@ details .answer{font-size:1.02rem}
            oculta junto con la línea de vigencia y el precio se queda: hay que cambiarlo a mano. -->
       <div class="promo">
         <div class="promo-price">
-          <span class="promo-tag">Oferta hasta el 14 de diciembre</span>
-          <span class="promo-label"><span>Valoración con microscopio</span><span class="promo-plus">+ limpieza profesional</span></span>
-          <ul class="promo-rows">
-            <li><span>Valoración con microscopio</span><b>$1,100</b></li>
-            <li><span>Aproveche la oferta: agregue su limpieza profesional <span class="promo-off">72% menos</span></span><b><s><span class="sr-only">Antes </span>$900</s>$250</b></li>
-          </ul>
-          <span class="promo-total">Total valoración + limpieza</span>
+          <span class="promo-label"><span>Valoración con microscopio</span></span>
+          <span class="promo-base">$1,100 <small>MXN</small></span>
+          <span class="promo-sep" aria-hidden="true"></span>
+          <span class="promo-tag">Aproveche la oferta</span>
+          <span class="promo-label"><span>Valoración</span><span class="promo-plus">+ limpieza profesional</span></span>
           <span class="promo-now">$1,350 <small>MXN</small></span>
+          <span class="promo-incl">Su limpieza le queda en <b>$250</b> en lugar de <s>$900</s> <span class="promo-off">72% menos</span></span>
         </div>
         <div class="countdown" data-countdown hidden>
           <span class="countdown-title">La oferta termina en</span>
@@ -1107,8 +1111,20 @@ details .answer{font-size:1.02rem}
     </div>
 
     <div class="price-grid">
+      <div class="price-card">
+        <span class="price-tag">Solo valoración</span>
+        <h3>Valoración con microscopio</h3>
+        <div class="amount">$1,100 <small>MXN</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Revisión detallada con microscopio dental</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Radiografías complementarias, si el doctor las necesita</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Ve en pantalla cómo están sus dientes</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Plan con precios antes de cualquier tratamiento</span></li>
+        </ul>
+      </div>
+
       <div class="price-card featured">
-        <span class="price-tag">Oferta</span>
+        <span class="price-tag">Aproveche la oferta</span>
         <h3>Valoración + limpieza profesional con microscopio</h3>
         <ul class="price-rows">
           <li><span>Valoración con microscopio</span><b>$1,100</b></li>
@@ -1132,18 +1148,6 @@ details .answer{font-size:1.02rem}
             <div><b data-cd="s">00</b><span>seg</span></div>
           </div>
         </div>
-      </div>
-
-      <div class="price-card">
-        <span class="price-tag">Solo valoración</span>
-        <h3>Valoración con microscopio</h3>
-        <div class="amount">$1,100 <small>MXN</small></div>
-        <ul>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Revisión detallada con microscopio dental</span></li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Radiografías complementarias, si el doctor las necesita</span></li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Ve en pantalla cómo están sus dientes</span></li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Plan con precios antes de cualquier tratamiento</span></li>
-        </ul>
       </div>
     </div>
 
